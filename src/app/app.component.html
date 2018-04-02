@@ -1,20 +1,637 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<app-header-panel></app-header-panel>
+<app-main-panel>
+    <app-item-container id="leftContainer" centerContent>
+                        <app-item-container-child>
+                          <mat-form-field>
+                            <input (focus)="onChangeURL($event)" matInput placeholder="URL">
+                          </mat-form-field>
+                        </app-item-container-child>
+                  
+                        <app-item-container-child>
+                          <mat-form-field>
+                            <mat-select>
+                              <mat-option value="option">GET</mat-option>
+                              <mat-option value="option">POST</mat-option>
+                              <mat-option value="option">PUT</mat-option>
+                              <mat-option value="option">DELETE</mat-option>
+                              <mat-option value="option">PATCH</mat-option>
+                              <mat-option value="option">HEAD</mat-option>
+                              <mat-option value="option">OPTIONS</mat-option>
+                              <mat-option value="option">CONNECT</mat-option>
+                              <mat-option value="option">TRACE</mat-option>
+                            </mat-select>
+                            <mat-placeholder><b> HTTP Method</b></mat-placeholder>
+                          </mat-form-field>
+                        </app-item-container-child>
+                  
+                        <app-item-container-child>
+                          <mat-form-field>
+                            <textarea matInput matTextareaAutosize matAutosizeMinRows="10" placeholder="Data"></textarea>
+                          </mat-form-field>
+                        </app-item-container-child>
+    </app-item-container>
+    <app-item-container id="optionsContainer">
+            <app-item-container-child matTooltip="Pick any authentication method">
+                    <mat-checkbox formControlName="--anyauth">--anyauth</mat-checkbox>
+                    <span>(H)</span>
+            </app-item-container-child>
+                <app-item-container-child matTooltip="Append to target file when uploading (F/SFTP)">
+                    <mat-checkbox formControlName="--append">--append</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP Basic Authentication (H)">
+                    <mat-checkbox formControlName="--basic">--basic</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="CA certificate to verify peer against (SSL)">
+                    <mat-checkbox formControlName="--cacert">--cacert</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="CA directory to verify peer against (SSL)">
+                    <mat-checkbox formControlName="--capath">--capath</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Client certificate file and password (SSL)">
+                    <mat-checkbox formControlName="--cert">--cert</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{CERT[:PASSWD]}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Verify the status of the server certificate (SSL)">
+                    <mat-checkbox formControlName="--cert-status">--cert-status</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Certificate file type (DER/PEM/ENG) (SSL)">
+                    <mat-checkbox formControlName="--cert-type">--cert-type</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="SSL ciphers to use (SSL)">
+                    <mat-checkbox formControlName="--ciphers">--ciphers</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Request compressed response (using deflate or gzip)">
+                    <mat-checkbox formControlName="--compressed">--compressed</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Read config from FILE">
+                    <mat-checkbox formControlName="--config">--config</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{FILE}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Maximum time allowed for connection">
+                    <mat-checkbox formControlName="--connect-timeout">--connect-timeout</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Resumed transfer OFFSET">
+                    <mat-checkbox formControlName="--continue-at">--continue-at</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{OFFSET}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Read cookies from STRING/FILE (H)">
+                    <mat-checkbox formControlName="--cookie">--cookie</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{STRING/FILE}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Write cookies to FILE after operation (H)">
+                    <mat-checkbox formControlName="--cookie-jar">--cookie-jar</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{FILE}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Create necessary local directory hierarchy">
+                    <mat-checkbox formControlName="--create-dirs">--create-dirs</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Convert LF to CRLF in upload">
+                    <mat-checkbox formControlName="--crlf">--crlf</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Get a CRL list in PEM format from the given file">
+                    <mat-checkbox formControlName="--crlfile">--crlfile</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="HTTP POST data (H)">
+                    <mat-checkbox formControlName="--data">--data</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{DATA}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="HTTP POST data, '@' allowed (H)">
+                    <mat-checkbox formControlName="--data-raw">--data-raw</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="HTTP POST ASCII data (H)">
+                    <mat-checkbox formControlName="--data-ascii">--data-ascii</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="HTTP POST binary data (H)">
+                    <mat-checkbox formControlName="--data-binary">--data-binary</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="HTTP POST data url encoded (H)">
+                    <mat-checkbox formControlName="--data-urlencode">--data-urlencode</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="GSS-API delegation permission">
+                    <mat-checkbox formControlName="--delegation">--delegation</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP Digest Authentication (H)">
+                    <mat-checkbox formControlName="--digest">--digest</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Inhibit using EPRT or LPRT (F)">
+                    <mat-checkbox formControlName="--disable-eprt">--disable-eprt</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Inhibit using EPSV (F)">
+                    <mat-checkbox formControlName="--disable-epsv">--disable-epsv</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="DNS server addrs to use: 1.1.1.1;2.2.2.2">
+                    <mat-checkbox formControlName="--dns-servers">--dns-servers</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Interface to use for DNS requests">
+                    <mat-checkbox formControlName="--dns-interface">--dns-interface</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="IPv4 address to use for DNS requests, dot notation">
+                    <mat-checkbox formControlName="--dns-ipv4-addr">--dns-ipv4-addr</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="IPv6 address to use for DNS requests, dot notation">
+                    <mat-checkbox formControlName="--dns-ipv6-addr">--dns-ipv6-addr</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Write the headers to FILE">
+                    <mat-checkbox formControlName="--dump-header">--dump-header</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{FILE}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="EGD socket path for random data (SSL)">
+                    <mat-checkbox formControlName="--egd-file">--egd-file</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Crypto engine (use --engine list for list) (SSL)">
+                    <mat-checkbox formControlName="--engine">--engine</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="How long to wait for 100-continue (H)">
+                    <mat-checkbox formControlName="--expect100-timeout">--expect100-timeout</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Fail silently (no output at all) on HTTP errors (H)">
+                    <mat-checkbox formControlName="--fail">--fail</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Enable TLS False Start.">
+                    <mat-checkbox formControlName="--false-start">--false-start</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Specify HTTP multipart POST data (H)">
+                    <mat-checkbox formControlName="--form">--form</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{CONTENT}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Specify HTTP multipart POST data (H)">
+                    <mat-checkbox formControlName="--form-string">--form-string</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Account data string (F)">
+                    <mat-checkbox formControlName="--ftp-account">--ftp-account</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="String to replace USER [name] (F)">
+                    <mat-checkbox formControlName="--ftp-alternative-to-user">--ftp-alternative-to-user</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Create the remote dirs if not present (F)">
+                    <mat-checkbox formControlName="--ftp-create-dirs">--ftp-create-dirs</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Control CWD usage (F)">
+                    <mat-checkbox formControlName="--ftp-method">--ftp-method</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use PASV/EPSV instead of PORT (F)">
+                    <mat-checkbox formControlName="--ftp-pasv">--ftp-pasv</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use PORT with given address instead of PASV (F)">
+                    <mat-checkbox formControlName="--ftp-port">--ftp-port</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{ADR}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Skip the IP address for PASV (F)">
+                    <mat-checkbox formControlName="--ftp-skip-pasv-ip">--ftp-skip-pasv-ip</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Send PRET before PASV (for drftpd) (F)">
+                    <mat-checkbox formControlName="--ftp-pret">--ftp-pret</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Send CCC after authenticating (F)">
+                    <mat-checkbox formControlName="--ftp-ssl-ccc">--ftp-ssl-ccc</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Set CCC mode (F)">
+                    <mat-checkbox formControlName="--ftp-ssl-ccc-mode">--ftp-ssl-ccc-mode</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Require SSL/TLS for FTP login, clear for transfer (F)">
+                    <mat-checkbox formControlName="--ftp-ssl-control">--ftp-ssl-control</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Send the -d data with a HTTP GET (H)">
+                    <mat-checkbox formControlName="--get">--get</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Disable URL sequences and ranges using {} and []">
+                    <mat-checkbox formControlName="--globoff">--globoff</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Pass custom header LINE to server (H)">
+                    <mat-checkbox formControlName="--header">--header</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{LINE}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Show document info only">
+                    <mat-checkbox formControlName="--head">--head</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="This help text">
+                    <mat-checkbox formControlName="--help">--help</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Hex-encoded MD5 string of the host public key. (SSH)">
+                    <mat-checkbox formControlName="--hostpubmd5">--hostpubmd5</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP 1.0 (H)">
+                    <mat-checkbox formControlName="--http1.0">--http1.0</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP 1.1 (H)">
+                    <mat-checkbox formControlName="--http1.1">--http1.1</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP 2 (H)">
+                    <mat-checkbox formControlName="--http2">--http2</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Ignore the HTTP Content-Length header">
+                    <mat-checkbox formControlName="--ignore-content-length">--ignore-content-length</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Include protocol headers in the output (H/F)">
+                    <mat-checkbox formControlName="--include">--include</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Allow connections to SSL sites without certs (H)">
+                    <mat-checkbox formControlName="--insecure">--insecure</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use network INTERFACE (or address)">
+                    <mat-checkbox formControlName="--interface">--interface</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Resolve name to IPv4 address">
+                    <mat-checkbox formControlName="--ipv4">--ipv4</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Resolve name to IPv6 address">
+                    <mat-checkbox formControlName="--ipv6">--ipv6</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Ignore session cookies read from file (H)">
+                    <mat-checkbox formControlName="--junk-session-cookies">--junk-session-cookies</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Wait SECONDS between keepalive probes">
+                    <mat-checkbox formControlName="--keepalive-time">--keepalive-time</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Private key file name (SSL/SSH)">
+                    <mat-checkbox formControlName="--key">--key</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Private key file type (DER/PEM/ENG) (SSL)">
+                    <mat-checkbox formControlName="--key-type">--key-type</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Enable Kerberos with security LEVEL (F)">
+                    <mat-checkbox formControlName="--krb">--krb</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Dump libcurl equivalent code of this command line">
+                    <mat-checkbox formControlName="--libcurl">--libcurl</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Limit transfer speed to RATE">
+                    <mat-checkbox formControlName="--limit-rate">--limit-rate</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="List only mode (F/POP3)">
+                    <mat-checkbox formControlName="--list-only">--list-only</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Force use of RANGE for local port numbers">
+                    <mat-checkbox formControlName="--local-port">--local-port</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Follow redirects (H)">
+                    <mat-checkbox formControlName="--location">--location</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Like '--location', and send auth to other hosts (H)">
+                    <mat-checkbox formControlName="--location-trusted">--location-trusted</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Server login options (IMAP, POP3, SMTP)">
+                    <mat-checkbox formControlName="--login-options">--login-options</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Display the full manual">
+                    <mat-checkbox formControlName="--manual">--manual</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Mail from this address (SMTP)">
+                    <mat-checkbox formControlName="--mail-from">--mail-from</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Mail to this/these addresses (SMTP)">
+                    <mat-checkbox formControlName="--mail-rcpt">--mail-rcpt</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Originator address of the original email (SMTP)">
+                    <mat-checkbox formControlName="--mail-auth">--mail-auth</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Maximum file size to download (H/F)">
+                    <mat-checkbox formControlName="--max-filesize">--max-filesize</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Maximum number of redirects allowed (H)">
+                    <mat-checkbox formControlName="--max-redirs">--max-redirs</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Maximum time allowed for the transfer">
+                    <mat-checkbox formControlName="--max-time">--max-time</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{SECONDS}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Process given URLs as metalink XML file">
+                    <mat-checkbox formControlName="--metalink">--metalink</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP Negotiate (SPNEGO) authentication (H)">
+                    <mat-checkbox formControlName="--negotiate">--negotiate</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Must read .netrc for user name and password">
+                    <mat-checkbox formControlName="--netrc">--netrc</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use either .netrc or URL; overrides -n">
+                    <mat-checkbox formControlName="--netrc-optional">--netrc-optional</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Specify FILE for netrc">
+                    <mat-checkbox formControlName="--netrc-file">--netrc-file</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Allows the following URL to use a separate set of options">
+                    <mat-checkbox formControlName="--next">--next</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Disable the ALPN TLS extension (H)">
+                    <mat-checkbox formControlName="--no-alpn">--no-alpn</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Disable buffering of the output stream">
+                    <mat-checkbox formControlName="--no-buffer">--no-buffer</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Disable keepalive use on the connection">
+                    <mat-checkbox formControlName="--no-keepalive">--no-keepalive</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Disable the NPN TLS extension (H)">
+                    <mat-checkbox formControlName="--no-npn">--no-npn</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Disable SSL session-ID reusing (SSL)">
+                    <mat-checkbox formControlName="--no-sessionid">--no-sessionid</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="List of hosts which do not use proxy">
+                    <mat-checkbox formControlName="--noproxy">--noproxy</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP NTLM authentication (H)">
+                    <mat-checkbox formControlName="--ntlm">--ntlm</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="OAuth 2 Bearer Token (IMAP, POP3, SMTP)">
+                    <mat-checkbox formControlName="--oauth2-bearer">--oauth2-bearer</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Write to FILE instead of stdout">
+                    <mat-checkbox formControlName="--output">--output</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Pass phrase for the private key (SSL/SSH)">
+                    <mat-checkbox formControlName="--pass">--pass</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Do not squash .. sequences in URL path">
+                    <mat-checkbox formControlName="--path-as-is">--path-as-is</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Public key to verify peer against (SSL)">
+                    <mat-checkbox formControlName="--pinnedpubkey">--pinnedpubkey</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Do not switch to GET after following a 301 redirect (H)">
+                    <mat-checkbox formControlName="--post301">--post301</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Do not switch to GET after following a 302 redirect (H)">
+                    <mat-checkbox formControlName="--post302">--post302</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Do not switch to GET after following a 303 redirect (H)">
+                    <mat-checkbox formControlName="--post303">--post303</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Display transfer progress as a progress bar">
+                    <mat-checkbox formControlName="--progress-bar">--progress-bar</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Enable/disable PROTOCOLS">
+                    <mat-checkbox formControlName="--proto">--proto</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use PROTOCOL for any URL missing a scheme">
+                    <mat-checkbox formControlName="--proto-default">--proto-default</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Enable/disable PROTOCOLS on redirect">
+                    <mat-checkbox formControlName="--proto-redir">--proto-redir</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use proxy on given port">
+                    <mat-checkbox formControlName="--proxy">--proxy</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{[PROTOCOL://]HOST[:PORT]}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Pick any proxy authentication method (H)">
+                    <mat-checkbox formControlName="--proxy-anyauth">--proxy-anyauth</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use Basic authentication on the proxy (H)">
+                    <mat-checkbox formControlName="--proxy-basic">--proxy-basic</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use Digest authentication on the proxy (H)">
+                    <mat-checkbox formControlName="--proxy-digest">--proxy-digest</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP Negotiate (SPNEGO) authentication on the proxy (H)">
+                    <mat-checkbox formControlName="--proxy-negotiate">--proxy-negotiate</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use NTLM authentication on the proxy (H)">
+                    <mat-checkbox formControlName="--proxy-ntlm">--proxy-ntlm</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="SPNEGO proxy service name">
+                    <mat-checkbox formControlName="--proxy-service-name">--proxy-service-name</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="SPNEGO service name">
+                    <mat-checkbox formControlName="--service-name">--service-name</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Proxy user and password">
+                    <mat-checkbox formControlName="--proxy-user">--proxy-user</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{USER[:PASSWORD]}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use HTTP/1.0 proxy on given port">
+                    <mat-checkbox formControlName="--proxy1.0">--proxy1.0</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Operate through a HTTP proxy tunnel (using CONNECT)">
+                    <mat-checkbox formControlName="--proxytunnel">--proxytunnel</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Public key file name (SSH)">
+                    <mat-checkbox formControlName="--pubkey">--pubkey</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Send command(s) to server before transfer (F/SFTP)">
+                    <mat-checkbox formControlName="--quote">--quote</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="File for reading random data from (SSL)">
+                    <mat-checkbox formControlName="--random-file">--random-file</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Retrieve only the bytes within RANGE">
+                    <mat-checkbox formControlName="--range">--range</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Do HTTP raw; no transfer decoding (H)">
+                    <mat-checkbox formControlName="--raw">--raw</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Referer URL (H)">
+                    <mat-checkbox formControlName="--referer">--referer</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use the header-provided filename (H)">
+                    <mat-checkbox formControlName="--remote-header-name">--remote-header-name</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Write output to a file named as the remote file">
+                    <mat-checkbox formControlName="--remote-name">--remote-name</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use the remote file name for all URLs">
+                    <mat-checkbox formControlName="--remote-name-all">--remote-name-all</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Set the remote file's time on the local output">
+                    <mat-checkbox formControlName="--remote-time">--remote-time</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Specify request command to use">
+                    <mat-checkbox formControlName="--request">--request</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{COMMAND}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Force resolve of HOST:PORT to ADDRESS">
+                    <mat-checkbox formControlName="--resolve">--resolve</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Retry request NUM times if transient problems occur">
+                    <mat-checkbox formControlName="--retry">--retry</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Wait SECONDS between retries">
+                    <mat-checkbox formControlName="--retry-delay">--retry-delay</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Retry only within this period">
+                    <mat-checkbox formControlName="--retry-max-time">--retry-max-time</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Enable initial response in SASL authentication">
+                    <mat-checkbox formControlName="--sasl-ir">--sasl-ir</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Show error. With -s">
+                    <mat-checkbox formControlName="--show-error">--show-error</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Silent mode (don't output anything)">
+                    <mat-checkbox formControlName="--silent">--silent</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="SOCKS4 proxy on given host + port">
+                    <mat-checkbox formControlName="--socks4">--socks4</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="SOCKS4a proxy on given host + port">
+                    <mat-checkbox formControlName="--socks4a">--socks4a</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="SOCKS5 proxy on given host + port">
+                    <mat-checkbox formControlName="--socks5">--socks5</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="SOCKS5 proxy, pass host name to proxy">
+                    <mat-checkbox formControlName="--socks5-hostname">--socks5-hostname</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="SOCKS5 proxy service name for GSS-API">
+                    <mat-checkbox formControlName="--socks5-gssapi-service">--socks5-gssapi-service</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Compatibility with NEC SOCKS5 server">
+                    <mat-checkbox formControlName="--socks5-gssapi-nec">--socks5-gssapi-nec</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Stop transfers below RATE for 'speed-time' secs">
+                    <mat-checkbox formControlName="--speed-limit">--speed-limit</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Trigger 'speed-limit' abort after SECONDS (default: 30)">
+                    <mat-checkbox formControlName="--speed-time">--speed-time</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Try SSL/TLS (FTP, IMAP, POP3, SMTP)">
+                    <mat-checkbox formControlName="--ssl">--ssl</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Require SSL/TLS (FTP, IMAP, POP3, SMTP)">
+                    <mat-checkbox formControlName="--ssl-reqd">--ssl-reqd</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use SSLv2 (SSL)">
+                    <mat-checkbox formControlName="--sslv2">--sslv2</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use SSLv3 (SSL)">
+                    <mat-checkbox formControlName="--sslv3">--sslv3</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Allow security flaw to improve interop (SSL)">
+                    <mat-checkbox formControlName="--ssl-allow-beast">--ssl-allow-beast</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Disable cert revocation checks (WinSSL)">
+                    <mat-checkbox formControlName="--ssl-no-revoke">--ssl-no-revoke</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Where to redirect stderr (use - for stdout)">
+                    <mat-checkbox formControlName="--stderr">--stderr</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use the TCP_NODELAY option">
+                    <mat-checkbox formControlName="--tcp-nodelay">--tcp-nodelay</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Set telnet option">
+                    <mat-checkbox formControlName="--telnet-option">--telnet-option</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{OPT=VAL}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Set TFTP BLKSIZE option (must be >512)">
+                    <mat-checkbox formControlName="--tftp-blksize">--tftp-blksize</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Transfer based on a time condition">
+                    <mat-checkbox formControlName="--time-cond">--time-cond</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{TIME}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use >= TLSv1 (SSL)">
+                    <mat-checkbox formControlName="--tlsv1">--tlsv1</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use TLSv1.0 (SSL)">
+                    <mat-checkbox formControlName="--tlsv1.0">--tlsv1.0</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use TLSv1.1 (SSL)">
+                    <mat-checkbox formControlName="--tlsv1.1">--tlsv1.1</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use TLSv1.2 (SSL)">
+                    <mat-checkbox formControlName="--tlsv1.2">--tlsv1.2</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Write a debug trace to FILE">
+                    <mat-checkbox formControlName="--trace">--trace</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Like --trace, but without hex output">
+                    <mat-checkbox formControlName="--trace-ascii">--trace-ascii</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Add time stamps to trace/verbose output">
+                    <mat-checkbox formControlName="--trace-time">--trace-time</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Request compressed transfer encoding (H)">
+                    <mat-checkbox formControlName="--tr-encoding">--tr-encoding</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Transfer FILE to destination">
+                    <mat-checkbox formControlName="--upload-file">--upload-file</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{FILE}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="URL to work with">
+                    <mat-checkbox formControlName="--url">--url</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use ASCII/text transfer">
+                    <mat-checkbox formControlName="--use-ascii">--use-ascii</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Server user and password">
+                    <mat-checkbox formControlName="--user">--user</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{USER[:PASSWORD]}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="TLS username">
+                    <mat-checkbox formControlName="--tlsuser">--tlsuser</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="TLS password">
+                    <mat-checkbox formControlName="--tlspassword">--tlspassword</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="TLS authentication type (default: SRP)">
+                    <mat-checkbox formControlName="--tlsauthtype">--tlsauthtype</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Connect through this Unix domain socket">
+                    <mat-checkbox formControlName="--unix-socket">--unix-socket</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Send User-Agent STRING to server (H)">
+                    <mat-checkbox formControlName="--user-agent">--user-agent</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{STRING}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Make the operation more talkative">
+                    <mat-checkbox formControlName="--verbose">--verbose</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Show version number and quit">
+                    <mat-checkbox formControlName="--version">--version</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Use output FORMAT after completion">
+                    <mat-checkbox formControlName="--write-out">--write-out</mat-checkbox>
+                           <mat-form-field>
+                                    <input matInput placeholder="{FORMAT}" >
+                        </mat-form-field>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Store metadata in extended file attributes">
+                    <mat-checkbox formControlName="--xattr">--xattr</mat-checkbox>
+                    </app-item-container-child>
+                <app-item-container-child matTooltip="Disable .curlrc (must be first parameter) ">
+                    <mat-checkbox formControlName=""></mat-checkbox>
+                    </app-item-container-child>
+           
+    </app-item-container>
+</app-main-panel>
