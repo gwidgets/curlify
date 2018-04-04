@@ -19,3 +19,14 @@
 .container-item-child {
     flex-shrink: 4;
 }
+
+
+#leftContainer {
+    flex-grow: 0.2;
+   
+   }
+   
+   #optionsContainer {
+       overflow: scroll;
+       flex-grow: 1;
+   }

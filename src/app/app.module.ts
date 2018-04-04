@@ -10,6 +10,7 @@ import { MainPanelComponent } from './main-panel/main-panel.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ItemContainerComponent } from './item-container/item-container.component';
 import { ItemContainerChildComponent } from './item-container-child/item-container-child.component';
+import { GeneratedCommandComponent } from './generated-command/generated-command.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ItemContainerChildComponent } from './item-container-child/item-contain
     MainPanelComponent,
     ItemContainerComponent,
     ItemContainerChildComponent,
+    GeneratedCommandComponent
   ],
   imports: [
     MatButtonModule,

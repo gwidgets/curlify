@@ -1,0 +1,9 @@
+.command {
+   opacity: 0.7;
+   color: white;
+   font: 15px Helvetica;
+   background-color: #4a4d58;
+   min-width: 70%;
+   min-height: 150px;
+   text-align: center;
+}
