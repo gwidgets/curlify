@@ -1,1255 +1,790 @@
-{"list": [
-    {
-        "shortFormOption": "",
-        "longFormOption": "--anyauth",
-        "argument": "",
-        "description": "Pick any authentication method (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-a",
-        "longFormOption": "--append",
-        "argument": "",
-        "description": "Append to target file when uploading (F/SFTP)",
-        "usage": "F/SFTP"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--basic",
-        "argument": "",
-        "description": "Use HTTP Basic Authentication (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--cacert",
-        "argument": "",
-        "description": "CA certificate to verify peer against (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--capath",
-        "argument": "",
-        "description": "CA directory to verify peer against (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "-E",
-        "longFormOption": "--cert",
-        "argument": "{CERT[:PASSWD]}",
-        "description": "Client certificate file and password (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--cert-status",
-        "argument": "",
-        "description": "Verify the status of the server certificate (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--cert-type",
-        "argument": "",
-        "description": "Certificate file type (DER/PEM/ENG) (SSL)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ciphers",
-        "argument": "",
-        "description": "SSL ciphers to use (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--compressed",
-        "argument": "",
-        "description": "Request compressed response (using deflate or gzip)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-K",
-        "longFormOption": "--config",
-        "argument": "{FILE}",
-        "description": "Read config from FILE",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--connect-timeout",
-        "argument": "",
-        "description": "Maximum time allowed for connection",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-C",
-        "longFormOption": "--continue-at",
-        "argument": "{OFFSET}",
-        "description": "Resumed transfer OFFSET",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-b",
-        "longFormOption": "--cookie",
-        "argument": "{STRING/FILE}",
-        "description": "Read cookies from STRING/FILE (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-c",
-        "longFormOption": "--cookie-jar",
-        "argument": "{FILE}",
-        "description": "Write cookies to FILE after operation (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--create-dirs",
-        "argument": "",
-        "description": "Create necessary local directory hierarchy",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--crlf",
-        "argument": "",
-        "description": "Convert LF to CRLF in upload",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--crlfile",
-        "argument": "",
-        "description": "Get a CRL list in PEM format from the given file",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-d",
-        "longFormOption": "--data",
-        "argument": "{DATA}",
-        "description": "HTTP POST data (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--data-raw",
-        "argument": "",
-        "description": "HTTP POST data, '@' allowed (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--data-ascii",
-        "argument": "",
-        "description": "HTTP POST ASCII data (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--data-binary",
-        "argument": "",
-        "description": "HTTP POST binary data (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--data-urlencode",
-        "argument": "",
-        "description": "HTTP POST data url encoded (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--delegation",
-        "argument": "",
-        "description": "GSS-API delegation permission",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--digest",
-        "argument": "",
-        "description": "Use HTTP Digest Authentication (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--disable-eprt",
-        "argument": "",
-        "description": "Inhibit using EPRT or LPRT (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--disable-epsv",
-        "argument": "",
-        "description": "Inhibit using EPSV (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--dns-servers",
-        "argument": "",
-        "description": "DNS server addrs to use: 1.1.1.1;2.2.2.2",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--dns-interface",
-        "argument": "",
-        "description": "Interface to use for DNS requests",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--dns-ipv4-addr",
-        "argument": "",
-        "description": "IPv4 address to use for DNS requests, dot notation",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--dns-ipv6-addr",
-        "argument": "",
-        "description": "IPv6 address to use for DNS requests, dot notation",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-D",
-        "longFormOption": "--dump-header",
-        "argument": "{FILE}",
-        "description": "Write the headers to FILE",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--egd-file",
-        "argument": "",
-        "description": "EGD socket path for random data (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--engine",
-        "argument": "",
-        "description": "Crypto engine (use --engine list for list) (SSL)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--expect100-timeout",
-        "argument": "",
-        "description": "How long to wait for 100-continue (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-f",
-        "longFormOption": "--fail",
-        "argument": "",
-        "description": "Fail silently (no output at all) on HTTP errors (H)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--false-start",
-        "argument": "",
-        "description": "Enable TLS False Start.",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-F",
-        "longFormOption": "--form",
-        "argument": "{CONTENT}",
-        "description": "Specify HTTP multipart POST data (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--form-string",
-        "argument": "",
-        "description": "Specify HTTP multipart POST data (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-account",
-        "argument": "",
-        "description": "Account data string (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-alternative-to-user",
-        "argument": "",
-        "description": "String to replace USER [name] (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-create-dirs",
-        "argument": "",
-        "description": "Create the remote dirs if not present (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-method",
-        "argument": "",
-        "description": "Control CWD usage (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-pasv",
-        "argument": "",
-        "description": "Use PASV/EPSV instead of PORT (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-P",
-        "longFormOption": "--ftp-port",
-        "argument": "{ADR}",
-        "description": "Use PORT with given address instead of PASV (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-skip-pasv-ip",
-        "argument": "",
-        "description": "Skip the IP address for PASV (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-pret",
-        "argument": "",
-        "description": "Send PRET before PASV (for drftpd) (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-ssl-ccc",
-        "argument": "",
-        "description": "Send CCC after authenticating (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-ssl-ccc-mode",
-        "argument": "",
-        "description": "Set CCC mode (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ftp-ssl-control",
-        "argument": "",
-        "description": "Require SSL/TLS for FTP login, clear for transfer (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-G",
-        "longFormOption": "--get",
-        "argument": "",
-        "description": "Send the -d data with a HTTP GET (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-g",
-        "longFormOption": "--globoff",
-        "argument": "{}",
-        "description": "Disable URL sequences and ranges using {} and []",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-H",
-        "longFormOption": "--header",
-        "argument": "{LINE}",
-        "description": "Pass custom header LINE to server (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-I",
-        "longFormOption": "--head",
-        "argument": "",
-        "description": "Show document info only",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-h",
-        "longFormOption": "--help",
-        "argument": "",
-        "description": "This help text",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--hostpubmd5",
-        "argument": "",
-        "description": "Hex-encoded MD5 string of the host public key. (SSH)",
-        "usage": "SSH"
-    },
-    {
-        "shortFormOption": "-0",
-        "longFormOption": "--http1.0",
-        "argument": "",
-        "description": "Use HTTP 1.0 (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--http1.1",
-        "argument": "",
-        "description": "Use HTTP 1.1 (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--http2",
-        "argument": "",
-        "description": "Use HTTP 2 (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ignore-content-length",
-        "argument": "",
-        "description": "Ignore the HTTP Content-Length header",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-i",
-        "longFormOption": "--include",
-        "argument": "",
-        "description": "Include protocol headers in the output (H/F)",
-        "usage": "H/F"
-    },
-    {
-        "shortFormOption": "-k",
-        "longFormOption": "--insecure",
-        "argument": "",
-        "description": "Allow connections to SSL sites without certs (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--interface",
-        "argument": "",
-        "description": "Use network INTERFACE (or address)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-4",
-        "longFormOption": "--ipv4",
-        "argument": "",
-        "description": "Resolve name to IPv4 address",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-6",
-        "longFormOption": "--ipv6",
-        "argument": "",
-        "description": "Resolve name to IPv6 address",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-j",
-        "longFormOption": "--junk-session-cookies",
-        "argument": "",
-        "description": "Ignore session cookies read from file (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--keepalive-time",
-        "argument": "",
-        "description": "Wait SECONDS between keepalive probes",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--key",
-        "argument": "",
-        "description": "Private key file name (SSL/SSH)",
-        "usage": "SSL/SSH"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--key-type",
-        "argument": "",
-        "description": "Private key file type (DER/PEM/ENG) (SSL)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--krb",
-        "argument": "",
-        "description": "Enable Kerberos with security LEVEL (F)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--libcurl",
-        "argument": "",
-        "description": "Dump libcurl equivalent code of this command line",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--limit-rate",
-        "argument": "",
-        "description": "Limit transfer speed to RATE",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-l",
-        "longFormOption": "--list-only",
-        "argument": "",
-        "description": "List only mode (F/POP3)",
-        "usage": "F/POP3"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--local-port",
-        "argument": "",
-        "description": "Force use of RANGE for local port numbers",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-L",
-        "longFormOption": "--location",
-        "argument": "",
-        "description": "Follow redirects (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--location-trusted",
-        "argument": "",
-        "description": "Like '--location', and send auth to other hosts (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--login-options",
-        "argument": "",
-        "description": "Server login options (IMAP, POP3, SMTP)",
-        "usage": "IMAP, POP3, SMTP"
-    },
-    {
-        "shortFormOption": "-M",
-        "longFormOption": "--manual",
-        "argument": "",
-        "description": "Display the full manual",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--mail-from",
-        "argument": "",
-        "description": "Mail from this address (SMTP)",
-        "usage": "SMTP"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--mail-rcpt",
-        "argument": "",
-        "description": "Mail to this/these addresses (SMTP)",
-        "usage": "SMTP"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--mail-auth",
-        "argument": "",
-        "description": "Originator address of the original email (SMTP)",
-        "usage": "SMTP"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--max-filesize",
-        "argument": "",
-        "description": "Maximum file size to download (H/F)",
-        "usage": "H/F"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--max-redirs",
-        "argument": "",
-        "description": "Maximum number of redirects allowed (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-m",
-        "longFormOption": "--max-time",
-        "argument": "{SECONDS}",
-        "description": "Maximum time allowed for the transfer",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--metalink",
-        "argument": "",
-        "description": "Process given URLs as metalink XML file",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--negotiate",
-        "argument": "",
-        "description": "Use HTTP Negotiate (SPNEGO) authentication (H)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-n",
-        "longFormOption": "--netrc",
-        "argument": "",
-        "description": "Must read .netrc for user name and password",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--netrc-optional",
-        "argument": "",
-        "description": "Use either .netrc or URL; overrides -n",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--netrc-file",
-        "argument": "",
-        "description": "Specify FILE for netrc",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-:",
-        "longFormOption": "--next",
-        "argument": "",
-        "description": "Allows the following URL to use a separate set of options",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--no-alpn",
-        "argument": "",
-        "description": "Disable the ALPN TLS extension (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-N",
-        "longFormOption": "--no-buffer",
-        "argument": "",
-        "description": "Disable buffering of the output stream",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--no-keepalive",
-        "argument": "",
-        "description": "Disable keepalive use on the connection",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--no-npn",
-        "argument": "",
-        "description": "Disable the NPN TLS extension (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--no-sessionid",
-        "argument": "",
-        "description": "Disable SSL session-ID reusing (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--noproxy",
-        "argument": "",
-        "description": "List of hosts which do not use proxy",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ntlm",
-        "argument": "",
-        "description": "Use HTTP NTLM authentication (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--oauth2-bearer",
-        "argument": "",
-        "description": "OAuth 2 Bearer Token (IMAP, POP3, SMTP)",
-        "usage": "IMAP, POP3, SMTP"
-    },
-    {
-        "shortFormOption": "-o",
-        "longFormOption": "--output",
-        "argument": "",
-        "description": "Write to FILE instead of stdout",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--pass",
-        "argument": "",
-        "description": "Pass phrase for the private key (SSL/SSH)",
-        "usage": "SSL/SSH"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--path-as-is",
-        "argument": "",
-        "description": "Do not squash .. sequences in URL path",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--pinnedpubkey",
-        "argument": "",
-        "description": "Public key to verify peer against (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--post301",
-        "argument": "",
-        "description": "Do not switch to GET after following a 301 redirect (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--post302",
-        "argument": "",
-        "description": "Do not switch to GET after following a 302 redirect (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--post303",
-        "argument": "",
-        "description": "Do not switch to GET after following a 303 redirect (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-#",
-        "longFormOption": "--progress-bar",
-        "argument": "",
-        "description": "Display transfer progress as a progress bar",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proto",
-        "argument": "",
-        "description": "Enable/disable PROTOCOLS",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proto-default",
-        "argument": "",
-        "description": "Use PROTOCOL for any URL missing a scheme",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proto-redir",
-        "argument": "",
-        "description": "Enable/disable PROTOCOLS on redirect",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-x",
-        "longFormOption": "--proxy",
-        "argument": "{[PROTOCOL://]HOST[:PORT]}",
-        "description": "Use proxy on given port",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proxy-anyauth",
-        "argument": "",
-        "description": "Pick any proxy authentication method (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proxy-basic",
-        "argument": "",
-        "description": "Use Basic authentication on the proxy (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proxy-digest",
-        "argument": "",
-        "description": "Use Digest authentication on the proxy (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proxy-negotiate",
-        "argument": "",
-        "description": "Use HTTP Negotiate (SPNEGO) authentication on the proxy (H)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proxy-ntlm",
-        "argument": "",
-        "description": "Use NTLM authentication on the proxy (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proxy-service-name",
-        "argument": "",
-        "description": "SPNEGO proxy service name",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--service-name",
-        "argument": "",
-        "description": "SPNEGO service name",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-U",
-        "longFormOption": "--proxy-user",
-        "argument": "{USER[:PASSWORD]}",
-        "description": "Proxy user and password",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--proxy1.0",
-        "argument": "",
-        "description": "Use HTTP/1.0 proxy on given port",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-p",
-        "longFormOption": "--proxytunnel",
-        "argument": "",
-        "description": "Operate through a HTTP proxy tunnel (using CONNECT)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--pubkey",
-        "argument": "",
-        "description": "Public key file name (SSH)",
-        "usage": "SSH"
-    },
-    {
-        "shortFormOption": "-Q",
-        "longFormOption": "--quote",
-        "argument": "",
-        "description": "Send command(s) to server before transfer (F/SFTP)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--random-file",
-        "argument": "",
-        "description": "File for reading random data from (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "-r",
-        "longFormOption": "--range",
-        "argument": "",
-        "description": "Retrieve only the bytes within RANGE",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--raw",
-        "argument": "",
-        "description": "Do HTTP raw; no transfer decoding (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-e",
-        "longFormOption": "--referer",
-        "argument": "",
-        "description": "Referer URL (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-J",
-        "longFormOption": "--remote-header-name",
-        "argument": "",
-        "description": "Use the header-provided filename (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-O",
-        "longFormOption": "--remote-name",
-        "argument": "",
-        "description": "Write output to a file named as the remote file",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--remote-name-all",
-        "argument": "",
-        "description": "Use the remote file name for all URLs",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-R",
-        "longFormOption": "--remote-time",
-        "argument": "",
-        "description": "Set the remote file's time on the local output",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-X",
-        "longFormOption": "--request",
-        "argument": "{COMMAND}",
-        "description": "Specify request command to use",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--resolve",
-        "argument": "",
-        "description": "Force resolve of HOST:PORT to ADDRESS",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--retry",
-        "argument": "",
-        "description": "Retry request NUM times if transient problems occur",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--retry-delay",
-        "argument": "",
-        "description": "Wait SECONDS between retries",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--retry-max-time",
-        "argument": "",
-        "description": "Retry only within this period",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--sasl-ir",
-        "argument": "",
-        "description": "Enable initial response in SASL authentication",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-S",
-        "longFormOption": "--show-error",
-        "argument": "",
-        "description": "Show error. With -s",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-s",
-        "longFormOption": "--silent",
-        "argument": "",
-        "description": "Silent mode (don't output anything)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--socks4",
-        "argument": "",
-        "description": "SOCKS4 proxy on given host + port",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--socks4a",
-        "argument": "",
-        "description": "SOCKS4a proxy on given host + port",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--socks5",
-        "argument": "",
-        "description": "SOCKS5 proxy on given host + port",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--socks5-hostname",
-        "argument": "",
-        "description": "SOCKS5 proxy, pass host name to proxy",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--socks5-gssapi-service",
-        "argument": "",
-        "description": "SOCKS5 proxy service name for GSS-API",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--socks5-gssapi-nec",
-        "argument": "",
-        "description": "Compatibility with NEC SOCKS5 server",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-Y",
-        "longFormOption": "--speed-limit",
-        "argument": "",
-        "description": "Stop transfers below RATE for 'speed-time' secs",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-y",
-        "longFormOption": "--speed-time",
-        "argument": "",
-        "description": "Trigger 'speed-limit' abort after SECONDS (default: 30)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ssl",
-        "argument": "",
-        "description": "Try SSL/TLS (FTP, IMAP, POP3, SMTP)",
-        "usage": "FTP, IMAP, POP3, SMTP"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ssl-reqd",
-        "argument": "",
-        "description": "Require SSL/TLS (FTP, IMAP, POP3, SMTP)",
-        "usage": "FTP, IMAP, POP3, SMTP"
-    },
-    {
-        "shortFormOption": "-2",
-        "longFormOption": "--sslv2",
-        "argument": "",
-        "description": "Use SSLv2 (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "-3",
-        "longFormOption": "--sslv3",
-        "argument": "",
-        "description": "Use SSLv3 (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ssl-allow-beast",
-        "argument": "",
-        "description": "Allow security flaw to improve interop (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--ssl-no-revoke",
-        "argument": "",
-        "description": "Disable cert revocation checks (WinSSL)",
-        "usage": "WinSSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--stderr",
-        "argument": "",
-        "description": "Where to redirect stderr (use - for stdout)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tcp-nodelay",
-        "argument": "",
-        "description": "Use the TCP_NODELAY option",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-t",
-        "longFormOption": "--telnet-option",
-        "argument": "{OPT=VAL}",
-        "description": "Set telnet option",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tftp-blksize",
-        "argument": "",
-        "description": "Set TFTP BLKSIZE option (must be >512)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-z",
-        "longFormOption": "--time-cond",
-        "argument": "{TIME}",
-        "description": "Transfer based on a time condition",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-1",
-        "longFormOption": "--tlsv1",
-        "argument": "",
-        "description": "Use >= TLSv1 (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tlsv1.0",
-        "argument": "",
-        "description": "Use TLSv1.0 (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tlsv1.1",
-        "argument": "",
-        "description": "Use TLSv1.1 (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tlsv1.2",
-        "argument": "",
-        "description": "Use TLSv1.2 (SSL)",
-        "usage": "SSL"
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--trace",
-        "argument": "",
-        "description": "Write a debug trace to FILE",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--trace-ascii",
-        "argument": "",
-        "description": "Like --trace, but without hex output",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--trace-time",
-        "argument": "",
-        "description": "Add time stamps to trace/verbose output",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tr-encoding",
-        "argument": "",
-        "description": "Request compressed transfer encoding (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-T",
-        "longFormOption": "--upload-file",
-        "argument": "{FILE}",
-        "description": "Transfer FILE to destination",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--url",
-        "argument": "",
-        "description": "URL to work with",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-B",
-        "longFormOption": "--use-ascii",
-        "argument": "",
-        "description": "Use ASCII/text transfer",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-u",
-        "longFormOption": "--user",
-        "argument": "{USER[:PASSWORD]}",
-        "description": "Server user and password",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tlsuser",
-        "argument": "",
-        "description": "TLS username",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tlspassword",
-        "argument": "",
-        "description": "TLS password",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--tlsauthtype",
-        "argument": "",
-        "description": "TLS authentication type (default: SRP)",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--unix-socket",
-        "argument": "",
-        "description": "Connect through this Unix domain socket",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-A",
-        "longFormOption": "--user-agent",
-        "argument": "{STRING}",
-        "description": "Send User-Agent STRING to server (H)",
-        "usage": "H"
-    },
-    {
-        "shortFormOption": "-v",
-        "longFormOption": "--verbose",
-        "argument": "",
-        "description": "Make the operation more talkative",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-V",
-        "longFormOption": "--version",
-        "argument": "",
-        "description": "Show version number and quit",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-w",
-        "longFormOption": "--write-out",
-        "argument": "{FORMAT}",
-        "description": "Use output FORMAT after completion",
-        "usage": null
-    },
-    {
-        "shortFormOption": "",
-        "longFormOption": "--xattr",
-        "argument": "",
-        "description": "Store metadata in extended file attributes",
-        "usage": null
-    },
-    {
-        "shortFormOption": "-q",
-        "longFormOption": "",
-        "argument": "",
-        "description": "Disable .curlrc (must be first parameter) ",
-        "usage": null
-    }
-]}
+{
+    "list": [ {
+        "longFormOption" : "--abstract-unix-socket",
+        "argument" : "path",
+        "description" : "Connect via abstract Unix domain socket"
+      }, {
+        "longFormOption" : "--anyauth",
+        "description" : "Pick any authentication method"
+      }, {
+        "shortFormOption" : "-a",
+        "longFormOption" : "--append",
+        "description" : "Append to target file when uploading"
+      }, {
+        "longFormOption" : "--basic",
+        "description" : "Use HTTP Basic Authentication"
+      }, {
+        "longFormOption" : "--cacert",
+        "argument" : "file",
+        "description" : "CA certificate to verify peer against"
+      }, {
+        "longFormOption" : "--capath",
+        "argument" : "dir",
+        "description" : "CA directory to verify peer against"
+      }, {
+        "shortFormOption" : "-E",
+        "longFormOption" : "--cert",
+        "argument" : "certificate[:password]",
+        "description" : "Client certificate file and password"
+      }, {
+        "longFormOption" : "--cert-status",
+        "description" : "Verify the status of the server certificate"
+      }, {
+        "longFormOption" : "--cert-type",
+        "argument" : "type",
+        "description" : "Certificate file type (DER/PEM/ENG)"
+      }, {
+        "longFormOption" : "--ciphers",
+        "argument" : "list of ciphers",
+        "description" : "of ciphers> SSL ciphers to use"
+      }, {
+        "longFormOption" : "--compressed",
+        "description" : "Request compressed response"
+      }, {
+        "longFormOption" : "--compressed-ssh",
+        "description" : "SSH compression"
+      }, {
+        "shortFormOption" : "-K",
+        "longFormOption" : "--config",
+        "argument" : "file",
+        "description" : "Read config from a file"
+      }, {
+        "longFormOption" : "--connect-timeout",
+        "argument" : "seconds",
+        "description" : "Maximum time allowed for connection"
+      }, {
+        "longFormOption" : "--connect-to",
+        "argument" : "HOST1:PORT1:HOST2:PORT2",
+        "description" : "Connect to host"
+      }, {
+        "shortFormOption" : "-C",
+        "longFormOption" : "--continue-at",
+        "argument" : "offset",
+        "description" : "Resumed transfer offset"
+      }, {
+        "shortFormOption" : "-b",
+        "longFormOption" : "--cookie",
+        "argument" : "data",
+        "description" : "Send cookies from string/file"
+      }, {
+        "shortFormOption" : "-c",
+        "longFormOption" : "--cookie-jar",
+        "argument" : "filename",
+        "description" : "Write cookies to <filename> after operation"
+      }, {
+        "longFormOption" : "--create-dirs",
+        "description" : "Create necessary local directory hierarchy"
+      }, {
+        "longFormOption" : "--crlf",
+        "description" : "Convert LF to CRLF in upload"
+      }, {
+        "longFormOption" : "--crlfile",
+        "argument" : "file",
+        "description" : "Get a CRL list in PEM format from the given file"
+      }, {
+        "longFormOption" : "--data-ascii",
+        "argument" : "data",
+        "description" : "HTTP POST ASCII data"
+      }, {
+        "longFormOption" : "--data-binary",
+        "argument" : "data",
+        "description" : "HTTP POST binary data"
+      }, {
+        "longFormOption" : "--data-raw",
+        "argument" : "data",
+        "description" : "HTTP POST data, '@' allowed"
+      }, {
+        "longFormOption" : "--data-urlencode",
+        "argument" : "data",
+        "description" : "HTTP POST data url encoded"
+      }, {
+        "longFormOption" : "--delegation",
+        "argument" : "LEVEL",
+        "description" : "GSS-API delegation permission"
+      }, {
+        "longFormOption" : "--digest",
+        "description" : "Use HTTP Digest Authentication"
+      }, {
+        "shortFormOption" : "-q",
+        "longFormOption" : "--disable",
+        "description" : "Disable .curlrc"
+      }, {
+        "longFormOption" : "--disable-eprt",
+        "description" : "Inhibit using EPRT or LPRT"
+      }, {
+        "longFormOption" : "--disable-epsv",
+        "description" : "Inhibit using EPSV"
+      }, {
+        "longFormOption" : "--dns-interface",
+        "argument" : "interface",
+        "description" : "Interface to use for DNS requests"
+      }, {
+        "longFormOption" : "--dns-ipv4-addr",
+        "argument" : "address",
+        "description" : "IPv4 address to use for DNS requests"
+      }, {
+        "longFormOption" : "--dns-ipv6-addr",
+        "argument" : "address",
+        "description" : "IPv6 address to use for DNS requests"
+      }, {
+        "longFormOption" : "--dns-servers",
+        "argument" : "addresses",
+        "description" : "DNS server addrs to use"
+      }, {
+        "shortFormOption" : "-D",
+        "longFormOption" : "--dump-header",
+        "argument" : "filename",
+        "description" : "Write the received headers to <filename>"
+      }, {
+        "longFormOption" : "--egd-file",
+        "argument" : "file",
+        "description" : "EGD socket path for random data"
+      }, {
+        "longFormOption" : "--engine",
+        "argument" : "name",
+        "description" : "Crypto engine to use"
+      }, {
+        "longFormOption" : "--expect100-timeout",
+        "argument" : "seconds",
+        "description" : "How long to wait for 100-continue"
+      }, {
+        "shortFormOption" : "-f",
+        "longFormOption" : "--fail",
+        "description" : "Fail silently (no output at all) on HTTP errors"
+      }, {
+        "longFormOption" : "--fail-early",
+        "description" : "Fail on first transfer error, do not continue"
+      }, {
+        "longFormOption" : "--false-start",
+        "description" : "Enable TLS False Start"
+      }, {
+        "shortFormOption" : "-F",
+        "longFormOption" : "--form",
+        "argument" : "name=content",
+        "description" : "Specify multipart MIME data"
+      }, {
+        "longFormOption" : "--form-string",
+        "argument" : "name=string",
+        "description" : "Specify multipart MIME data"
+      }, {
+        "longFormOption" : "--ftp-account",
+        "argument" : "data",
+        "description" : "Account data string"
+      }, {
+        "longFormOption" : "--ftp-alternative-to-user",
+        "argument" : "command",
+        "description" : "String to replace USER [name]"
+      }, {
+        "longFormOption" : "--ftp-create-dirs",
+        "description" : "the remote dirs if not present"
+      }, {
+        "longFormOption" : "--ftp-method",
+        "argument" : "method",
+        "description" : "Control CWD usage"
+      }, {
+        "longFormOption" : "--ftp-pasv",
+        "description" : "Use PASV/EPSV instead of PORT"
+      }, {
+        "shortFormOption" : "-P",
+        "longFormOption" : "--ftp-port",
+        "argument" : "address",
+        "description" : "Use PORT instead of PASV"
+      }, {
+        "longFormOption" : "--ftp-pret",
+        "description" : "Send PRET before PASV"
+      }, {
+        "longFormOption" : "--ftp-skip-pasv-ip",
+        "description" : "the IP address for PASV"
+      }, {
+        "longFormOption" : "--ftp-ssl-ccc",
+        "description" : "Send CCC after authenticating"
+      }, {
+        "longFormOption" : "--ftp-ssl-ccc-mode",
+        "argument" : "active/passive",
+        "description" : "Set CCC mode"
+      }, {
+        "longFormOption" : "--ftp-ssl-control",
+        "description" : "SSL/TLS for FTP login, clear for transfer"
+      }, {
+        "shortFormOption" : "-G",
+        "longFormOption" : "--get",
+        "description" : "Put the post data in the URL and use GET"
+      }, {
+        "shortFormOption" : "-g",
+        "longFormOption" : "--globoff",
+        "description" : "Disable URL sequences and ranges using {} and []"
+      }, {
+        "longFormOption" : "--happy-eyeballs-timeout-ms",
+        "description" : "long to wait in milliseconds for IPv6 before trying IPv4"
+      }, {
+        "shortFormOption" : "-I",
+        "longFormOption" : "--head",
+        "description" : "Show document info only"
+      }, {
+        "shortFormOption" : "-H",
+        "longFormOption" : "--header",
+        "argument" : "header/@file",
+        "description" : "Pass custom header(s) to server"
+      }, {
+        "longFormOption" : "--hostpubmd5",
+        "argument" : "md5",
+        "description" : "Acceptable MD5 hash of the host public key"
+      }, {
+        "shortFormOption" : "-0",
+        "longFormOption" : "--http1.0",
+        "description" : "Use HTTP 1.0"
+      }, {
+        "longFormOption" : "--http1.1",
+        "description" : "Use HTTP 1.1"
+      }, {
+        "longFormOption" : "--http2",
+        "description" : "Use HTTP 2"
+      }, {
+        "longFormOption" : "--http2-prior-knowledge",
+        "description" : "HTTP 2 without HTTP/1.1 Upgrade"
+      }, {
+        "longFormOption" : "--ignore-content-length",
+        "description" : "the size of the remote resource"
+      }, {
+        "shortFormOption" : "-i",
+        "longFormOption" : "--include",
+        "description" : "Include protocol response headers in the output"
+      }, {
+        "shortFormOption" : "-k",
+        "longFormOption" : "--insecure",
+        "description" : "Allow insecure server connections when using SSL"
+      }, {
+        "longFormOption" : "--interface",
+        "argument" : "name",
+        "description" : "Use network INTERFACE (or address)"
+      }, {
+        "shortFormOption" : "-4",
+        "longFormOption" : "--ipv4",
+        "description" : "Resolve names to IPv4 addresses"
+      }, {
+        "shortFormOption" : "-6",
+        "longFormOption" : "--ipv6",
+        "description" : "Resolve names to IPv6 addresses"
+      }, {
+        "shortFormOption" : "-j",
+        "longFormOption" : "--junk-session-cookies",
+        "description" : "session cookies read from file"
+      }, {
+        "longFormOption" : "--keepalive-time",
+        "argument" : "seconds",
+        "description" : "Interval time for keepalive probes"
+      }, {
+        "longFormOption" : "--key",
+        "argument" : "key",
+        "description" : "Private key file name"
+      }, {
+        "longFormOption" : "--key-type",
+        "argument" : "type",
+        "description" : "Private key file type (DER/PEM/ENG)"
+      }, {
+        "longFormOption" : "--krb",
+        "argument" : "level",
+        "description" : "Enable Kerberos with security <level>"
+      }, {
+        "longFormOption" : "--libcurl",
+        "argument" : "file",
+        "description" : "Dump libcurl equivalent code of this command line"
+      }, {
+        "longFormOption" : "--limit-rate",
+        "argument" : "speed",
+        "description" : "Limit transfer speed to RATE"
+      }, {
+        "shortFormOption" : "-l",
+        "longFormOption" : "--list-only",
+        "description" : "List only mode"
+      }, {
+        "longFormOption" : "--local-port",
+        "argument" : "num/range",
+        "description" : "Force use of RANGE for local port numbers"
+      }, {
+        "shortFormOption" : "-L",
+        "longFormOption" : "--location",
+        "description" : "Follow redirects"
+      }, {
+        "longFormOption" : "--location-trusted",
+        "description" : "--location, and send auth to other hosts"
+      }, {
+        "longFormOption" : "--login-options",
+        "argument" : "options",
+        "description" : "Server login options"
+      }, {
+        "longFormOption" : "--mail-auth",
+        "argument" : "address",
+        "description" : "Originator address of the original email"
+      }, {
+        "longFormOption" : "--mail-from",
+        "argument" : "address",
+        "description" : "Mail from this address"
+      }, {
+        "longFormOption" : "--mail-rcpt",
+        "argument" : "address",
+        "description" : "Mail to this address"
+      }, {
+        "shortFormOption" : "-M",
+        "longFormOption" : "--manual",
+        "description" : "Display the full manual"
+      }, {
+        "longFormOption" : "--max-filesize",
+        "argument" : "bytes",
+        "description" : "Maximum file size to download"
+      }, {
+        "longFormOption" : "--max-redirs",
+        "argument" : "num",
+        "description" : "Maximum number of redirects allowed"
+      }, {
+        "shortFormOption" : "-m",
+        "longFormOption" : "--max-time",
+        "argument" : "time",
+        "description" : "Maximum time allowed for the transfer"
+      }, {
+        "longFormOption" : "--metalink",
+        "description" : "Process given URLs as metalink XML file"
+      }, {
+        "longFormOption" : "--negotiate",
+        "description" : "Use HTTP Negotiate (SPNEGO) authentication"
+      }, {
+        "shortFormOption" : "-n",
+        "longFormOption" : "--netrc",
+        "description" : "Must read .netrc for user name and password"
+      }, {
+        "longFormOption" : "--netrc-file",
+        "argument" : "filename",
+        "description" : "Specify FILE for netrc"
+      }, {
+        "longFormOption" : "--netrc-optional",
+        "description" : "either .netrc or URL"
+      }, {
+        "shortFormOption" : "-:",
+        "longFormOption" : "--next",
+        "description" : "Make next URL use its separate set of options"
+      }, {
+        "longFormOption" : "--no-alpn",
+        "description" : "Disable the ALPN TLS extension"
+      }, {
+        "shortFormOption" : "-N",
+        "longFormOption" : "--no-buffer",
+        "description" : "Disable buffering of the output stream"
+      }, {
+        "longFormOption" : "--no-keepalive",
+        "description" : "Disable TCP keepalive on the connection"
+      }, {
+        "longFormOption" : "--no-npn",
+        "description" : "Disable the NPN TLS extension"
+      }, {
+        "longFormOption" : "--no-sessionid",
+        "description" : "Disable SSL session-ID reusing"
+      }, {
+        "longFormOption" : "--noproxy",
+        "argument" : "no-proxy-list",
+        "description" : "List of hosts which do not use proxy"
+      }, {
+        "longFormOption" : "--ntlm",
+        "description" : "Use HTTP NTLM authentication"
+      }, {
+        "longFormOption" : "--ntlm-wb",
+        "description" : "Use HTTP NTLM authentication with winbind"
+      }, {
+        "longFormOption" : "--oauth2-bearer",
+        "argument" : "token",
+        "description" : "OAuth 2 Bearer Token"
+      }, {
+        "shortFormOption" : "-o",
+        "longFormOption" : "--output",
+        "argument" : "file",
+        "description" : "Write to file instead of stdout"
+      }, {
+        "longFormOption" : "--pass",
+        "argument" : "phrase",
+        "description" : "Pass phrase for the private key"
+      }, {
+        "longFormOption" : "--path-as-is",
+        "description" : "Do not squash .. sequences in URL path"
+      }, {
+        "longFormOption" : "--pinnedpubkey",
+        "argument" : "hashes",
+        "description" : "FILE/HASHES Public key to verify peer against"
+      }, {
+        "longFormOption" : "--post301",
+        "description" : "Do not switch to GET after following a 301"
+      }, {
+        "longFormOption" : "--post302",
+        "description" : "Do not switch to GET after following a 302"
+      }, {
+        "longFormOption" : "--post303",
+        "description" : "Do not switch to GET after following a 303"
+      }, {
+        "longFormOption" : "--preproxy",
+        "description" : "Use this proxy first"
+      }, {
+        "shortFormOption" : "-#",
+        "longFormOption" : "--progress-bar",
+        "description" : "Display transfer progress as a bar"
+      }, {
+        "longFormOption" : "--proto",
+        "argument" : "protocols",
+        "description" : "Enable/disable PROTOCOLS"
+      }, {
+        "longFormOption" : "--proto-default",
+        "argument" : "protocol",
+        "description" : "Use PROTOCOL for any URL missing a scheme"
+      }, {
+        "longFormOption" : "--proto-redir",
+        "argument" : "protocols",
+        "description" : "Enable/disable PROTOCOLS on redirect"
+      }, {
+        "shortFormOption" : "-x",
+        "longFormOption" : "--proxy",
+        "description" : "Use this proxy"
+      }, {
+        "longFormOption" : "--proxy-anyauth",
+        "description" : "any proxy authentication method"
+      }, {
+        "longFormOption" : "--proxy-basic",
+        "description" : "Use Basic authentication on the proxy"
+      }, {
+        "longFormOption" : "--proxy-cacert",
+        "argument" : "file",
+        "description" : "CA certificate to verify peer against for proxy"
+      }, {
+        "longFormOption" : "--proxy-capath",
+        "argument" : "dir",
+        "description" : "CA directory to verify peer against for proxy"
+      }, {
+        "longFormOption" : "--proxy-cert",
+        "argument" : "cert[:passwd]",
+        "description" : "Set client certificate for proxy"
+      }, {
+        "longFormOption" : "--proxy-cert-type",
+        "argument" : "type",
+        "description" : "Client certificate type for HTTS proxy"
+      }, {
+        "longFormOption" : "--proxy-ciphers",
+        "argument" : "list",
+        "description" : "SSL ciphers to use for proxy"
+      }, {
+        "longFormOption" : "--proxy-crlfile",
+        "argument" : "file",
+        "description" : "Set a CRL list for proxy"
+      }, {
+        "longFormOption" : "--proxy-digest",
+        "description" : "Use Digest authentication on the proxy"
+      }, {
+        "longFormOption" : "--proxy-header",
+        "argument" : "header/@file",
+        "description" : "Pass custom header(s) to proxy"
+      }, {
+        "longFormOption" : "--proxy-insecure",
+        "description" : "HTTPS proxy connections without verifying the proxy"
+      }, {
+        "longFormOption" : "--proxy-key",
+        "argument" : "key",
+        "description" : "Private key for HTTPS proxy"
+      }, {
+        "longFormOption" : "--proxy-key-type",
+        "argument" : "type",
+        "description" : "Private key file type for proxy"
+      }, {
+        "longFormOption" : "--proxy-negotiate",
+        "description" : "HTTP Negotiate (SPNEGO) authentication on the proxy"
+      }, {
+        "longFormOption" : "--proxy-ntlm",
+        "description" : "Use NTLM authentication on the proxy"
+      }, {
+        "longFormOption" : "--proxy-pass",
+        "argument" : "phrase",
+        "description" : "Pass phrase for the private key for HTTPS proxy"
+      }, {
+        "longFormOption" : "--proxy-pinnedpubkey",
+        "argument" : "hashes",
+        "description" : "FILE/HASHES public key to verify proxy with"
+      }, {
+        "longFormOption" : "--proxy-service-name",
+        "argument" : "name",
+        "description" : "SPNEGO proxy service name"
+      }, {
+        "longFormOption" : "--proxy-ssl-allow-beast",
+        "description" : "security flaw for interop for HTTPS proxy"
+      }, {
+        "longFormOption" : "--proxy-tlsauthtype",
+        "argument" : "type",
+        "description" : "TLS authentication type for HTTPS proxy"
+      }, {
+        "longFormOption" : "--proxy-tlspassword",
+        "argument" : "string",
+        "description" : "TLS password for HTTPS proxy"
+      }, {
+        "longFormOption" : "--proxy-tlsuser",
+        "argument" : "name",
+        "description" : "TLS username for HTTPS proxy"
+      }, {
+        "longFormOption" : "--proxy-tlsv1",
+        "description" : "Use TLSv1 for HTTPS proxy"
+      }, {
+        "shortFormOption" : "-U",
+        "longFormOption" : "--proxy-user",
+        "argument" : "user:password",
+        "description" : "Proxy user and password"
+      }, {
+        "longFormOption" : "--proxy1.0",
+        "argument" : "host[:port]",
+        "description" : "Use HTTP/1.0 proxy on given port"
+      }, {
+        "shortFormOption" : "-p",
+        "longFormOption" : "--proxytunnel",
+        "description" : "Operate through a HTTP proxy tunnel (using CONNECT)"
+      }, {
+        "longFormOption" : "--pubkey",
+        "argument" : "key",
+        "description" : "SSH Public key file name"
+      }, {
+        "shortFormOption" : "-Q",
+        "longFormOption" : "--quote",
+        "description" : "Send command(s) to server before transfer"
+      }, {
+        "longFormOption" : "--random-file",
+        "argument" : "file",
+        "description" : "File for reading random data from"
+      }, {
+        "shortFormOption" : "-r",
+        "longFormOption" : "--range",
+        "argument" : "range",
+        "description" : "Retrieve only the bytes within RANGE"
+      }, {
+        "longFormOption" : "--raw",
+        "description" : "Do HTTP \"raw\"; no transfer decoding"
+      }, {
+        "shortFormOption" : "-e",
+        "longFormOption" : "--referer",
+        "argument" : "URL",
+        "description" : "Referrer URL"
+      }, {
+        "shortFormOption" : "-J",
+        "longFormOption" : "--remote-header-name",
+        "description" : "the header-provided filename"
+      }, {
+        "shortFormOption" : "-O",
+        "longFormOption" : "--remote-name",
+        "description" : "Write output to a file named as the remote file"
+      }, {
+        "longFormOption" : "--remote-name-all",
+        "description" : "the remote file name for all URLs"
+      }, {
+        "shortFormOption" : "-R",
+        "longFormOption" : "--remote-time",
+        "description" : "Set the remote file's time on the local output"
+      }, {
+        "longFormOption" : "--request-target",
+        "description" : "the target for this request"
+      }, {
+        "longFormOption" : "--resolve",
+        "argument" : "host:port:address",
+        "description" : "Resolve the host+port to this address"
+      }, {
+        "longFormOption" : "--retry",
+        "argument" : "num",
+        "description" : "Retry request if transient problems occur"
+      }, {
+        "longFormOption" : "--retry-connrefused",
+        "description" : "on connection refused (use with --retry)"
+      }, {
+        "longFormOption" : "--retry-delay",
+        "argument" : "seconds",
+        "description" : "Wait time between retries"
+      }, {
+        "longFormOption" : "--retry-max-time",
+        "argument" : "seconds",
+        "description" : "Retry only within this period"
+      }, {
+        "longFormOption" : "--sasl-ir",
+        "description" : "Enable initial response in SASL authentication"
+      }, {
+        "longFormOption" : "--service-name",
+        "argument" : "name",
+        "description" : "SPNEGO service name"
+      }, {
+        "shortFormOption" : "-S",
+        "longFormOption" : "--show-error",
+        "description" : "Show error even when -s is used"
+      }, {
+        "shortFormOption" : "-s",
+        "longFormOption" : "--silent",
+        "description" : "Silent mode"
+      }, {
+        "longFormOption" : "--socks4",
+        "argument" : "host[:port]",
+        "description" : "SOCKS4 proxy on given host + port"
+      }, {
+        "longFormOption" : "--socks4a",
+        "argument" : "host[:port]",
+        "description" : "SOCKS4a proxy on given host + port"
+      }, {
+        "longFormOption" : "--socks5",
+        "argument" : "host[:port]",
+        "description" : "SOCKS5 proxy on given host + port"
+      }, {
+        "longFormOption" : "--socks5-basic",
+        "description" : "Enable username/password auth for SOCKS5 proxies"
+      }, {
+        "longFormOption" : "--socks5-gssapi",
+        "description" : "GSS-API auth for SOCKS5 proxies"
+      }, {
+        "longFormOption" : "--socks5-gssapi-nec",
+        "description" : "with NEC SOCKS5 server"
+      }, {
+        "longFormOption" : "--socks5-gssapi-service",
+        "argument" : "name",
+        "description" : "SOCKS5 proxy service name for GSS-API"
+      }, {
+        "longFormOption" : "--socks5-hostname",
+        "argument" : "host[:port]",
+        "description" : "SOCKS5 proxy, pass host name to proxy"
+      }, {
+        "shortFormOption" : "-Y",
+        "longFormOption" : "--speed-limit",
+        "argument" : "speed",
+        "description" : "Stop transfers slower than this"
+      }, {
+        "shortFormOption" : "-y",
+        "longFormOption" : "--speed-time",
+        "argument" : "seconds",
+        "description" : "Trigger 'speed-limit' abort after this time"
+      }, {
+        "longFormOption" : "--ssl",
+        "description" : "Try SSL/TLS"
+      }, {
+        "longFormOption" : "--ssl-allow-beast",
+        "description" : "security flaw to improve interop"
+      }, {
+        "longFormOption" : "--ssl-no-revoke",
+        "description" : "cert revocation checks (WinSSL)"
+      }, {
+        "longFormOption" : "--ssl-reqd",
+        "description" : "Require SSL/TLS"
+      }, {
+        "shortFormOption" : "-2",
+        "longFormOption" : "--sslv2",
+        "description" : "Use SSLv2"
+      }, {
+        "shortFormOption" : "-3",
+        "longFormOption" : "--sslv3",
+        "description" : "Use SSLv3"
+      }, {
+        "longFormOption" : "--stderr",
+        "description" : "Where to redirect stderr"
+      }, {
+        "longFormOption" : "--suppress-connect-headers",
+        "description" : "proxy CONNECT response headers"
+      }, {
+        "longFormOption" : "--tcp-fastopen",
+        "description" : "Use TCP Fast Open"
+      }, {
+        "longFormOption" : "--tcp-nodelay",
+        "description" : "Use the TCP_NODELAY option"
+      }, {
+        "shortFormOption" : "-t",
+        "longFormOption" : "--telnet-option",
+        "argument" : "opt=val",
+        "description" : "Set telnet option"
+      }, {
+        "longFormOption" : "--tftp-blksize",
+        "argument" : "value",
+        "description" : "Set TFTP BLKSIZE option"
+      }, {
+        "longFormOption" : "--tftp-no-options",
+        "description" : "not send any TFTP options"
+      }, {
+        "shortFormOption" : "-z",
+        "longFormOption" : "--time-cond",
+        "argument" : "time",
+        "description" : "Transfer based on a time condition"
+      }, {
+        "longFormOption" : "--tls-max",
+        "argument" : "VERSION",
+        "description" : "Use TLSv1.0 or greater"
+      }, {
+        "longFormOption" : "--tlsauthtype",
+        "argument" : "type",
+        "description" : "TLS authentication type"
+      }, {
+        "longFormOption" : "--tlspassword",
+        "description" : "TLS password"
+      }, {
+        "longFormOption" : "--tlsuser",
+        "argument" : "name",
+        "description" : "TLS user name"
+      }, {
+        "shortFormOption" : "-1",
+        "longFormOption" : "--tlsv1",
+        "description" : "Use TLSv1.0 or greater"
+      }, {
+        "longFormOption" : "--tlsv1.0",
+        "description" : "Use TLSv1.0"
+      }, {
+        "longFormOption" : "--tlsv1.1",
+        "description" : "Use TLSv1.1"
+      }, {
+        "longFormOption" : "--tlsv1.2",
+        "description" : "Use TLSv1.2"
+      }, {
+        "longFormOption" : "--tlsv1.3",
+        "description" : "Use TLSv1.3"
+      }, {
+        "longFormOption" : "--tr-encoding",
+        "description" : "Request compressed transfer encoding"
+      }, {
+        "longFormOption" : "--trace",
+        "argument" : "file",
+        "description" : "Write a debug trace to FILE"
+      }, {
+        "longFormOption" : "--trace-ascii",
+        "argument" : "file",
+        "description" : "Like --trace, but without hex output"
+      }, {
+        "longFormOption" : "--trace-time",
+        "description" : "Add time stamps to trace/verbose output"
+      }, {
+        "longFormOption" : "--unix-socket",
+        "argument" : "path",
+        "description" : "Connect through this Unix domain socket"
+      }, {
+        "shortFormOption" : "-T",
+        "longFormOption" : "--upload-file",
+        "argument" : "file",
+        "description" : "Transfer local FILE to destination"
+      }, {
+        "longFormOption" : "--url",
+        "argument" : "url",
+        "description" : "URL to work with"
+      }, {
+        "shortFormOption" : "-B",
+        "longFormOption" : "--use-ascii",
+        "description" : "Use ASCII/text transfer"
+      }, {
+        "shortFormOption" : "-u",
+        "longFormOption" : "--user",
+        "argument" : "user:password",
+        "description" : "Server user and password"
+      }, {
+        "shortFormOption" : "-A",
+        "longFormOption" : "--user-agent",
+        "argument" : "name",
+        "description" : "Send User-Agent <name> to server"
+      }, {
+        "shortFormOption" : "-v",
+        "longFormOption" : "--verbose",
+        "description" : "Make the operation more talkative"
+      }, {
+        "shortFormOption" : "-w",
+        "longFormOption" : "--write-out",
+        "argument" : "format",
+        "description" : "Use output FORMAT after completion"
+      }, {
+        "longFormOption" : "--xattr",
+        "description" : "Store metadata in extended file attributes"
+      } ]
+}

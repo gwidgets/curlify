@@ -2,7 +2,8 @@ import { Component, OnInit, EventEmitter, ViewChild} from '@angular/core';
 import { GeneratedCommandComponent }  from '../generated-command/generated-command.component';
 import { concat } from 'rxjs/operators';
 import { merge } from 'rxjs/observable/merge';
-import * as commandConfig from "./commands.json";
+import * as optionsConfig from "./commands.json";
+import { MatCheckboxChange } from '@angular/material';
 
 @Component({
   selector: 'app-main-panel',
@@ -13,18 +14,20 @@ export class MainPanelComponent implements OnInit {
 
   onUrlChanged = new EventEmitter<object>();
   onHttpMethodChanged = new EventEmitter<object>();
-  onHttpDataChanged = new EventEmitter<object>();
+  onDataChanged = new EventEmitter<object>();
+  onOptionChanged = new EventEmitter<object>();
   commands = ["curl"];
+  options = <any>optionsConfig.list;
 
   @ViewChild(GeneratedCommandComponent)
   private generatedCommand: GeneratedCommandComponent;
 
   constructor() { 
-    console.log(commandConfig);
+    console.log(optionsConfig);
   }
 
   ngOnInit() {
-   merge( this.onUrlChanged, this.onHttpMethodChanged)
+   merge( this.onUrlChanged, this.onHttpMethodChanged, this.onDataChanged, this.onOptionChanged)
         .subscribe(command => {
           console.log(command);
           console.log(this.commands.toString());
@@ -43,5 +46,17 @@ export class MainPanelComponent implements OnInit {
   httpMethodChanged(event: Event) {
     console.log(event)
     this.onHttpMethodChanged.emit({"position": 1, "value": "-X" +event.value});
+  }
+
+  dataChanged(event: Event) {
+    console.log(event)
+    this.onDataChanged.emit({"position": 3, "value": "-d '" +event.target.value +"'"});
+  }
+
+  commandChanged(event: MatCheckboxChange) {
+    console.log(event)
+    if (event.checked) {
+     this.onOptionChanged.emit({"position": 4, "value": event.source.name });
+    }
   }
 }
