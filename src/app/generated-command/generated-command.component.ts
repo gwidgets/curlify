@@ -7,9 +7,16 @@ import {Component, OnInit, ElementRef, EventEmitter} from '@angular/core';
 })
 export class GeneratedCommandComponent implements OnInit {
 
+  command = "curl";
+
   constructor(public elementRef: ElementRef) { }
 
   ngOnInit() {
      
+  }
+
+  updateCommand(newCommand: string) {
+    this.command = newCommand;
+
   }
 }

@@ -3,11 +3,10 @@ import { GeneratedCommandComponent }  from '../generated-command/generated-comma
 import { concat } from 'rxjs/operators';
 import { merge } from 'rxjs/observable/merge';
 import * as optionsConfig from "./commands.json";
-import { MatCheckboxChange } from '@angular/material';
+import { MatCheckboxChange, MatFormField } from '@angular/material';
 import { CommandConfig } from './command-config';
 import { OptionCommandConfig } from './option-command-config';
 import { OptionOperation } from './option-config';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-main-panel',
@@ -20,83 +19,75 @@ export class MainPanelComponent implements OnInit {
   onHttpMethodChanged = new EventEmitter<object>();
   onDataChanged = new EventEmitter<object>();
   onOptionChanged = new EventEmitter<object>();
-  onOptionArgumentChanged = new EventEmitter<object>();
-  commands = ["curl"];
+  requiredCommands = [];
+  optionCommands = [];
   options = optionsConfig.list;
 
   @ViewChild(GeneratedCommandComponent)
   private generatedCommand: GeneratedCommandComponent;
 
   constructor() { 
-    console.log(optionsConfig);
   }
 
   ngOnInit() {
-   merge( this.onUrlChanged, this.onHttpMethodChanged, this.onDataChanged, this.onOptionChanged, this.onOptionArgumentChanged)
+   merge( this.onUrlChanged, this.onHttpMethodChanged, this.onDataChanged, this.onOptionChanged)
         .subscribe(command => {
-          console.log(command);
-          console.log(this.commands.toString());
-          if(!command.isOption) {
-             this.commands[command.position] = command.value;
+          if (!command.isOptionalCommand) {
+            this.requiredCommands[command.position] = command;
           } else {
             switch(+command.optionConfig.optionOperation) {
                   case OptionOperation.TAIL : {
-                    this.commands.push(command.value);
+                      this.optionCommands.push(command)
                     break;
                   } 
                   case OptionOperation.REMOVE: {
-                    let index = this.commands.findIndex((option) => option.includes(command.optionConfig.name));
-                    this.commands[index] = "";
+                    let index = this.optionCommands.filter((option) => option != null && option.optionConfig !== undefined && option.optionConfig != null).findIndex((option) => option.optionConfig.name.includes(command.optionConfig.name));
+                    this.optionCommands.splice(index, 1);
                     break;
                   } 
                   default: {
-                    let index = this.commands.findIndex((option) => option.includes(command.optionConfig.name));
-                    this.commands[index] = command.optionConfig.name + " '" + command.optionConfig.argumentValue + "'";
+                    let index = this.optionCommands.filter((option) => option != null && option.optionConfig !== undefined && option.optionConfig != null).findIndex((option) => option.optionConfig.name.includes(command.optionConfig.name));
+                    this.optionCommands[index] = command;
                     break;
                   }
-
             }
           }
-             this.generatedCommand.elementRef.nativeElement.querySelector(".command").innerText = this.commands.toString().replace(/,/g, " ");
+             this.generatedCommand.updateCommand(this.getCommandAsString());
             }) 
-
-    
-       // .subscribe(method => {this.generatedCommand.elementRef.nativeElement.querySelector(".command").innerText = "curl -X" + method})
   }
 
   urlChanged(event: KeyboardEvent) {
-    this.onUrlChanged.emit(new CommandConfig(2, event.target.value));
+    this.onUrlChanged.emit(new CommandConfig(1, event.target.value));
   }
 
   httpMethodChanged(event: Event) {
-    console.log(event)
-    this.onHttpMethodChanged.emit(new CommandConfig(1, "-X" +event.value));
+    this.onHttpMethodChanged.emit(new CommandConfig(0, "-X" +event.value));
   }
 
   dataChanged(event: Event) {
-    console.log(event)
-    this.onDataChanged.emit(new CommandConfig(3,  "-d '" +event.target.value +"'" ));
+    this.onDataChanged.emit(new CommandConfig(2,  "-d '" +event.target.value +"'" ));
   }
 
-  commandChanged(event: MatCheckboxChange) {
-    console.log(event)
-    console.log($(event.source._elementRef.nativeElement).next().is("mat-form-field"));
-    if (event.checked) {
-     this.onOptionChanged.emit(new CommandConfig(4, event.source.name, true, new OptionCommandConfig(event.source.name, "", OptionOperation.TAIL)));
-    } else {
-      this.onOptionChanged.emit(new CommandConfig(4, event.source.name, true, new OptionCommandConfig(event.source.name, "", OptionOperation.REMOVE))); 
-    }
+  onOptionEvent(newValue) {
+    this.onOptionChanged.emit(newValue);
   }
 
-  optionArgumentChanged(event: Event) {
-     // this.onOptionArgumentChanged.emit();
+  getCommandAsString() {
+    let optionsCommandsCopy = this.optionCommands.filter(command => command != null).sort((currentCommandConfig, nextCommandConfig) => {return currentCommandConfig.position > nextCommandConfig.position});
+    let commandArray = ["curl"]
 
-     let optionChecked = $( "mat-checkbox[ng-reflect-name='"+event.target.name+"']").find("input").get(0).checked;
+    let commandsOptionsAsStringsArray = optionsCommandsCopy.map(command => {
+        if (command.optionConfig.hasArgument) {
+          return command.value + " '" + command.optionConfig.argumentValue + "'";
+        } else {
+          return command.value;
+        }
+    })
 
-     console.log(optionChecked);
+    let requiredOptionsAsStringsArray = this.requiredCommands.map(command => {
+        return command.value;
+    })
 
-     if (optionChecked) {
-      this.onOptionArgumentChanged.emit(new CommandConfig(4, event.target.name, true, new OptionCommandConfig(event.target.name, event.target.value, OptionOperation.MODIFY)));
-     }
+    return commandArray.concat(requiredOptionsAsStringsArray).concat(commandsOptionsAsStringsArray).toString().replace(/,/g, " ") ;
   }
 }

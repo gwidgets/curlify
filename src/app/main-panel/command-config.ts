@@ -4,14 +4,13 @@ export class CommandConfig  {
 
     public position: number;
     public value: string;
-    public isOption: boolean;
+    public isOptionalCommand: boolean;
     public optionConfig: OptionCommandConfig;
   
-    constructor(position: number, value: string, isOption: boolean = false, optionConfig: OptionCommandConfig = null) {
+    constructor(position: number, value: string, isOptionalCommand: boolean = false, optionConfig: OptionCommandConfig = null) {
         this.position = position;
         this.value = value; 
-        this.isOption = isOption;
+        this.isOptionalCommand = isOptionalCommand;
         this.optionConfig = optionConfig;
     }
-
   }

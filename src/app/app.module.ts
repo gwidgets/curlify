@@ -13,7 +13,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ItemContainerComponent } from './item-container/item-container.component';
 import { ItemContainerChildComponent } from './item-container-child/item-container-child.component';
 import { GeneratedCommandComponent } from './generated-command/generated-command.component';
-import { OptionConfigComponent } from './option-config/option-config.component';
 import { OptionSelectComponent } from './option-select/option-select.component';
 
 
@@ -25,7 +24,6 @@ import { OptionSelectComponent } from './option-select/option-select.component';
     ItemContainerComponent,
     ItemContainerChildComponent,
     GeneratedCommandComponent,
-    OptionConfigComponent,
     OptionSelectComponent
   ],
   imports: [

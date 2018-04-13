@@ -42,11 +42,7 @@
                 {{option.description}}
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <mat-checkbox (change)="commandChanged($event)" name="{{option.longFormOption}}">{{option.longFormOption}}</mat-checkbox>
-          <mat-form-field *ngIf="option.argument !== undefined">
-            <input (keyup)="optionArgumentChanged($event)" name="{{option.longFormOption}}" matInput placeholder="{{option.argument}}">
-          </mat-form-field>
-
+          <app-option-select (commandChanged)="onOptionEvent($event)" (optionChanged)="onOptionEvent($event)" [option]="option"></app-option-select>
         </mat-expansion-panel>
     </mat-accordion>
 </app-item-container-child>
