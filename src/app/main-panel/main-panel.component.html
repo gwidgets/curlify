@@ -23,11 +23,22 @@
             <mat-placeholder><b> HTTP Method</b></mat-placeholder>
           </mat-form-field>
         </app-item-container-child>
+
+
   
         <app-item-container-child>
-          <mat-form-field>
-            <textarea (keyup)="dataChanged($event)" matInput matTextareaAutosize matAutosizeMinRows="10" placeholder="Data"></textarea>
+          <mat-form-field style="display: block !important;">
+            <textarea #dataTextArea (keyup)="dataChanged($event)" matInput matTextareaAutosize matAutosizeMinRows="10" placeholder="Data"></textarea>
           </mat-form-field>
+        </app-item-container-child>
+        <app-item-container-child>
+          <mat-radio-group (change)="dataTypeChanged($event)">
+            <mat-radio-button checked value="--data">--data</mat-radio-button>
+            <mat-radio-button value="--data-ascii">--data-ascii</mat-radio-button>
+            <mat-radio-button value="--data-binary">--data-binary</mat-radio-button>
+            <mat-radio-button value="--data-raw">--data-raw</mat-radio-button>
+            <mat-radio-button value="--data-urlencode">--data-urlencode</mat-radio-button>
+          </mat-radio-group>
         </app-item-container-child>
 </app-item-container>
 <app-item-container id="optionsContainer">

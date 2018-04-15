@@ -14,6 +14,7 @@ import { ItemContainerComponent } from './item-container/item-container.componen
 import { ItemContainerChildComponent } from './item-container-child/item-container-child.component';
 import { GeneratedCommandComponent } from './generated-command/generated-command.component';
 import { OptionSelectComponent } from './option-select/option-select.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { OptionSelectComponent } from './option-select/option-select.component';
     MatCheckboxModule,
     MatTooltipModule,
     MatExpansionModule,
+    MatRadioModule,
     BrowserAnimationsModule
   ],
   providers: [],

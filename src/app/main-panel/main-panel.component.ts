@@ -3,7 +3,7 @@ import { GeneratedCommandComponent }  from '../generated-command/generated-comma
 import { concat } from 'rxjs/operators';
 import { merge } from 'rxjs/observable/merge';
 import * as optionsConfig from "./commands.json";
-import { MatCheckboxChange, MatFormField } from '@angular/material';
+import { MatCheckboxChange, MatFormField, MatRadioChange, MatRadioGroup, MatTextareaAutosize } from '@angular/material';
 import { CommandConfig } from './command-config';
 import { OptionCommandConfig } from './option-command-config';
 import { OptionOperation } from './option-config';
@@ -19,18 +19,25 @@ export class MainPanelComponent implements OnInit {
   onHttpMethodChanged = new EventEmitter<object>();
   onDataChanged = new EventEmitter<object>();
   onOptionChanged = new EventEmitter<object>();
+  onDataTypeChanged = new EventEmitter<object>();
   requiredCommands = [];
   optionCommands = [];
-  options = optionsConfig.list;
+  options = <any>optionsConfig.list;
 
   @ViewChild(GeneratedCommandComponent)
   private generatedCommand: GeneratedCommandComponent;
+
+  @ViewChild(MatRadioGroup)
+  private dataTypeRadioGroup: MatRadioGroup;
+
+  @ViewChild("dataTextArea")
+  private dataTextArea: ElementRef;
 
   constructor() { 
   }
 
   ngOnInit() {
-   merge( this.onUrlChanged, this.onHttpMethodChanged, this.onDataChanged, this.onOptionChanged)
+   merge( this.onUrlChanged, this.onHttpMethodChanged, this.onDataChanged, this.onOptionChanged, this.onDataTypeChanged)
         .subscribe(command => {
           if (!command.isOptionalCommand) {
             this.requiredCommands[command.position] = command;
@@ -65,11 +72,23 @@ export class MainPanelComponent implements OnInit {
   }
 
   dataChanged(event: Event) {
-    this.onDataChanged.emit(new CommandConfig(2,  "-d '" +event.target.value +"'" ));
+    let value =  this.dataTypeRadioGroup.value +" '" +event.target.value +"'" ;
+    if (event.target.value === "")
+      value = "";
+    this.onDataChanged.emit(new CommandConfig(2,  value ));
   }
 
   onOptionEvent(newValue) {
     this.onOptionChanged.emit(newValue);
+  }
+
+  dataTypeChanged(event: MatRadioChange) {
+    console.log(event.value);
+    console.log(this.dataTextArea);
+    let value = event.value+" '" +this.dataTextArea.nativeElement.value +"'";
+    if (this.dataTextArea.nativeElement.value === "")
+      value = "";
+    this.onDataTypeChanged.emit(new CommandConfig(2, value));
   }
 
   getCommandAsString() {
