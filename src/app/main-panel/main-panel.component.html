@@ -39,9 +39,22 @@
             <mat-radio-button value="--data-raw">--data-raw</mat-radio-button>
             <mat-radio-button value="--data-urlencode">--data-urlencode</mat-radio-button>
           </mat-radio-group>
-        </app-item-container-child>
+        </app-item-container-child>       
 </app-item-container>
+
 <app-item-container id="optionsContainer">
+    <app-item-container-child>
+        <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Headers
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <app-headers-option-container (childrenHeadersChanged)="headerChanged($event)"></app-headers-option-container>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </app-item-container-child>
 <app-item-container-child *ngFor="let option of options">
     <mat-accordion>
         <mat-expansion-panel>
@@ -53,7 +66,7 @@
                 {{option.description}}
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <app-option-select (commandChanged)="onOptionEvent($event)" (optionChanged)="onOptionEvent($event)" [option]="option"></app-option-select>
+          <app-option-select (commandChanged)="onOptionEvent($event)" (optionChanged)="optionEvent($event)" [option]="option"></app-option-select>      
         </mat-expansion-panel>
     </mat-accordion>
 </app-item-container-child>

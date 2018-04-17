@@ -36,18 +36,18 @@ export class OptionSelectComponent implements OnInit {
     if (event.checked) {
       if (this.argumentField !== undefined) {
         let argument = this.argumentField.value === "" ? this.argumentField.placeholder : this.argumentField.value;
-        this.commandChanged.emit(new CommandConfig(4, event.source.name, true, new OptionCommandConfig(event.source.name, argument, OptionOperation.TAIL, true)));
+        this.commandChanged.emit(new CommandConfig(5, event.source.name, true, new OptionCommandConfig(event.source.name, argument, OptionOperation.TAIL, true)));
       } else {
-        this.commandChanged.emit(new CommandConfig(4, event.source.name, true, new OptionCommandConfig(event.source.name, "", OptionOperation.TAIL)));
+        this.commandChanged.emit(new CommandConfig(5, event.source.name, true, new OptionCommandConfig(event.source.name, "", OptionOperation.TAIL)));
       }
     } else {
-      this.commandChanged.emit(new CommandConfig(4, event.source.name, true, new OptionCommandConfig(event.source.name, "", OptionOperation.REMOVE))); 
+      this.commandChanged.emit(new CommandConfig(5, event.source.name, true, new OptionCommandConfig(event.source.name, "", OptionOperation.REMOVE))); 
     }
   }
 
   onOptionArgumentChanged(event: Event) {
      if (this.optionCheckBox.checked) {
-      this.optionChanged.emit(new CommandConfig(4, event.target.name, true, new OptionCommandConfig(event.target.name, event.target.value, OptionOperation.MODIFY, true)));
+      this.optionChanged.emit(new CommandConfig(5, event.target.name, true, new OptionCommandConfig(event.target.name, event.target.value, OptionOperation.MODIFY, true)));
      }
   }
 

@@ -1,0 +1,17 @@
+      <li>
+        <table>
+        <tr>
+          <td > 
+            <mat-form-field >
+              <mat-select  value="ACCEPT" (change)="headerTypeChanged($event)">
+                <mat-option *ngFor="let header of headersList" value="{{header}}">{{header}}</mat-option>
+              </mat-select>
+              <mat-placeholder><b> Headers</b></mat-placeholder>
+            </mat-form-field></td>
+        <td>
+          <mat-form-field>
+            <input (keyup)="headerValueChanged($event)" matInput placeholder="Header value">
+          </mat-form-field> </td>
+        </tr>  
+      </table>
+    </li>

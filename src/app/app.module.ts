@@ -5,7 +5,7 @@ import { CommonModule } from "@angular/common";
 
 import { AppComponent } from './app.component';
 import { HeaderPanelComponent } from './header-panel/header-panel.component';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatOptionModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatOptionModule, MatIconModule } from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MainPanelComponent } from './main-panel/main-panel.component';
@@ -15,6 +15,8 @@ import { ItemContainerChildComponent } from './item-container-child/item-contain
 import { GeneratedCommandComponent } from './generated-command/generated-command.component';
 import { OptionSelectComponent } from './option-select/option-select.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { HeadersOptionComponent } from './headers-option/headers-option.component';
+import { HeadersOptionContainerComponent } from './headers-option-container/headers-option-container.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import {MatRadioModule} from '@angular/material/radio';
     ItemContainerComponent,
     ItemContainerChildComponent,
     GeneratedCommandComponent,
-    OptionSelectComponent
+    OptionSelectComponent,
+    HeadersOptionComponent,
+    HeadersOptionContainerComponent
   ],
   imports: [
     MatButtonModule,
@@ -42,6 +46,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatRadioModule,
     BrowserAnimationsModule
   ],
+  entryComponents: [HeadersOptionComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

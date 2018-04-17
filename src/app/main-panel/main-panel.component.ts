@@ -20,8 +20,10 @@ export class MainPanelComponent implements OnInit {
   onDataChanged = new EventEmitter<object>();
   onOptionChanged = new EventEmitter<object>();
   onDataTypeChanged = new EventEmitter<object>();
+  onHeaderChanged = new EventEmitter<object>();
   requiredCommands = [];
   optionCommands = [];
+  headersCommands = [];
   options = <any>optionsConfig.list;
 
   @ViewChild(GeneratedCommandComponent)
@@ -37,24 +39,39 @@ export class MainPanelComponent implements OnInit {
   }
 
   ngOnInit() {
-   merge( this.onUrlChanged, this.onHttpMethodChanged, this.onDataChanged, this.onOptionChanged, this.onDataTypeChanged)
+   merge( this.onUrlChanged, this.onHttpMethodChanged, this.onDataChanged, this.onOptionChanged, this.onDataTypeChanged, this.onHeaderChanged)
         .subscribe(command => {
           if (!command.isOptionalCommand) {
-            this.requiredCommands[command.position] = command;
+              this.requiredCommands[command.position] = command;
           } else {
             switch(+command.optionConfig.optionOperation) {
                   case OptionOperation.TAIL : {
-                      this.optionCommands.push(command)
+                    if (command.isHeaderCommand) {
+                     this.headersCommands.push(command);
+                    } else {
+                      this.optionCommands.push(command);
+                    }
                     break;
                   } 
                   case OptionOperation.REMOVE: {
-                    let index = this.optionCommands.filter((option) => option != null && option.optionConfig !== undefined && option.optionConfig != null).findIndex((option) => option.optionConfig.name.includes(command.optionConfig.name));
-                    this.optionCommands.splice(index, 1);
+                    if (command.isHeaderCommand) {
+                   //   const index = this.headersCommands.findIndex((header) => header.value.includes(command.value));
+                      this.headersCommands.splice(parseInt(command.optionConfig.argumentValue), 1);
+                    } else {
+                      const index = this.optionCommands.filter((option) => option != null && option.optionConfig !== undefined && option.optionConfig != null).findIndex((option) => option.optionConfig.name.includes(command.optionConfig.name));
+                      this.optionCommands.splice(index, 1);
+                    }
                     break;
                   } 
                   default: {
-                    let index = this.optionCommands.filter((option) => option != null && option.optionConfig !== undefined && option.optionConfig != null).findIndex((option) => option.optionConfig.name.includes(command.optionConfig.name));
-                    this.optionCommands[index] = command;
+                    if (command.isHeaderCommand) {
+     /*                  let headerToBeModified = command.value.split(":")[0];
+                      const index = this.headersCommands.findIndex((header) => header.value.includes(headerToBeModified)); */
+                      this.headersCommands[parseInt(command.optionConfig.argumentValue)] = command;
+                    } else {
+                      const index = this.optionCommands.filter((option) => option != null && option.optionConfig !== undefined && option.optionConfig != null).findIndex((option) => option.optionConfig.name.includes(command.optionConfig.name));
+                      this.optionCommands[index] = command;
+                    }
                     break;
                   }
             }
@@ -78,17 +95,19 @@ export class MainPanelComponent implements OnInit {
     this.onDataChanged.emit(new CommandConfig(2,  value ));
   }
 
-  onOptionEvent(newValue) {
+  optionEvent(newValue) {
     this.onOptionChanged.emit(newValue);
   }
 
   dataTypeChanged(event: MatRadioChange) {
-    console.log(event.value);
-    console.log(this.dataTextArea);
     let value = event.value+" '" +this.dataTextArea.nativeElement.value +"'";
     if (this.dataTextArea.nativeElement.value === "")
       value = "";
     this.onDataTypeChanged.emit(new CommandConfig(2, value));
+  }
+
+  headerChanged(headerCommand) {
+     this.onHeaderChanged.emit(headerCommand)      
   }
 
   getCommandAsString() {
@@ -107,6 +126,11 @@ export class MainPanelComponent implements OnInit {
         return command.value;
     })
 
-    return commandArray.concat(requiredOptionsAsStringsArray).concat(commandsOptionsAsStringsArray).toString().replace(/,/g, " ") ;
+    let headerOptionsAsStringsArray = this.headersCommands.map(headerCommand => {
+      return headerCommand.value;
+  })
+
+    return commandArray.concat(requiredOptionsAsStringsArray).concat(headerOptionsAsStringsArray)
+                      .concat(commandsOptionsAsStringsArray).toString().replace(/,/g, " ") ;
   }
 }

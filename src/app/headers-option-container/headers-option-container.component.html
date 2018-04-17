@@ -1,0 +1,5 @@
+<button (click)="addHeaderClicked($event)" mat-mini-fab>+</button>
+<button (click)="removeHeaderClicked($event)" mat-mini-fab>-</button>
+<ul #headersListElement style="list-style: none;">
+  <ng-template #dynamicHeadersList></ng-template>  
+</ul>
