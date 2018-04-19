@@ -8,7 +8,7 @@ import { Component, OnInit, Input, ElementRef} from '@angular/core';
 export class ItemContainerComponent implements OnInit {
 
   
-  isContentCentered: boolean; 
+  public isContentCentered: boolean; 
 
   @Input()
   centerContent: String; 
@@ -22,7 +22,8 @@ export class ItemContainerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isContentCentered = (this.centerContent == "" ? true: false);
+    this.isContentCentered = (this.centerContent === "" ? true: false);
+
   }
 
   ngAfterViewInit() {

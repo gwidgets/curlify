@@ -46,8 +46,9 @@ export class OptionSelectComponent implements OnInit {
   }
 
   onOptionArgumentChanged(event: Event) {
+    const target = <HTMLInputElement>event.target;
      if (this.optionCheckBox.checked) {
-      this.optionChanged.emit(new CommandConfig(5, event.target.name, true, new OptionCommandConfig(event.target.name, event.target.value, OptionOperation.MODIFY, true)));
+      this.optionChanged.emit(new CommandConfig(5, target.name, true, new OptionCommandConfig(target.name, target.value, OptionOperation.MODIFY, true)));
      }
   }
 

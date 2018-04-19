@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderPanelComponent implements OnInit {
 
+  appTitle = "Curlify";
+
   constructor() { }
 
   ngOnInit() {

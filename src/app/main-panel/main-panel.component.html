@@ -23,8 +23,6 @@
             <mat-placeholder><b> HTTP Method</b></mat-placeholder>
           </mat-form-field>
         </app-item-container-child>
-
-
   
         <app-item-container-child>
           <mat-form-field style="display: block !important;">
@@ -66,7 +64,7 @@
                 {{option.description}}
             </mat-panel-description>
           </mat-expansion-panel-header>
-          <app-option-select (commandChanged)="onOptionEvent($event)" (optionChanged)="optionEvent($event)" [option]="option"></app-option-select>      
+          <app-option-select (commandChanged)="optionEvent($event)" (optionChanged)="optionEvent($event)" [option]="option"></app-option-select>      
         </mat-expansion-panel>
     </mat-accordion>
 </app-item-container-child>
@@ -74,6 +72,6 @@
 
 </div>
 
-<app-generated-command (onUrlChanged)="updateCommand($event)">
+<app-generated-command>
     
 </app-generated-command>

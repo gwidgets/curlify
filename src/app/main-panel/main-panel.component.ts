@@ -3,7 +3,7 @@ import { GeneratedCommandComponent }  from '../generated-command/generated-comma
 import { concat } from 'rxjs/operators';
 import { merge } from 'rxjs/observable/merge';
 import * as optionsConfig from "./commands.json";
-import { MatCheckboxChange, MatFormField, MatRadioChange, MatRadioGroup, MatTextareaAutosize } from '@angular/material';
+import { MatCheckboxChange, MatFormField, MatRadioChange, MatRadioGroup, MatTextareaAutosize, MatOptionSelectionChange, MatSelectChange } from '@angular/material';
 import { CommandConfig } from './command-config';
 import { OptionCommandConfig } from './option-command-config';
 import { OptionOperation } from './option-config';
@@ -24,7 +24,7 @@ export class MainPanelComponent implements OnInit {
   requiredCommands = [];
   optionCommands = [];
   headersCommands = [];
-  options = <any>optionsConfig.list;
+  options = optionsConfig;
 
   @ViewChild(GeneratedCommandComponent)
   private generatedCommand: GeneratedCommandComponent;
@@ -40,7 +40,7 @@ export class MainPanelComponent implements OnInit {
 
   ngOnInit() {
    merge( this.onUrlChanged, this.onHttpMethodChanged, this.onDataChanged, this.onOptionChanged, this.onDataTypeChanged, this.onHeaderChanged)
-        .subscribe(command => {
+        .subscribe((command: CommandConfig) => {
           if (!command.isOptionalCommand) {
               this.requiredCommands[command.position] = command;
           } else {
@@ -55,7 +55,6 @@ export class MainPanelComponent implements OnInit {
                   } 
                   case OptionOperation.REMOVE: {
                     if (command.isHeaderCommand) {
-                   //   const index = this.headersCommands.findIndex((header) => header.value.includes(command.value));
                       this.headersCommands.splice(parseInt(command.optionConfig.argumentValue), 1);
                     } else {
                       const index = this.optionCommands.filter((option) => option != null && option.optionConfig !== undefined && option.optionConfig != null).findIndex((option) => option.optionConfig.name.includes(command.optionConfig.name));
@@ -65,8 +64,6 @@ export class MainPanelComponent implements OnInit {
                   } 
                   default: {
                     if (command.isHeaderCommand) {
-     /*                  let headerToBeModified = command.value.split(":")[0];
-                      const index = this.headersCommands.findIndex((header) => header.value.includes(headerToBeModified)); */
                       this.headersCommands[parseInt(command.optionConfig.argumentValue)] = command;
                     } else {
                       const index = this.optionCommands.filter((option) => option != null && option.optionConfig !== undefined && option.optionConfig != null).findIndex((option) => option.optionConfig.name.includes(command.optionConfig.name));
@@ -81,16 +78,18 @@ export class MainPanelComponent implements OnInit {
   }
 
   urlChanged(event: KeyboardEvent) {
-    this.onUrlChanged.emit(new CommandConfig(1, event.target.value));
+    const target = <HTMLInputElement>event.target;
+    this.onUrlChanged.emit(new CommandConfig(1, target.value));
   }
 
-  httpMethodChanged(event: Event) {
+  httpMethodChanged(event: MatSelectChange) {
     this.onHttpMethodChanged.emit(new CommandConfig(0, "-X" +event.value));
   }
 
   dataChanged(event: Event) {
-    let value =  this.dataTypeRadioGroup.value +" '" +event.target.value +"'" ;
-    if (event.target.value === "")
+    const target = <HTMLTextAreaElement>event.target;
+    let value =  this.dataTypeRadioGroup.value +" '" +target.value +"'" ;
+    if (target.value === "")
       value = "";
     this.onDataChanged.emit(new CommandConfig(2,  value ));
   }
@@ -111,7 +110,14 @@ export class MainPanelComponent implements OnInit {
   }
 
   getCommandAsString() {
-    let optionsCommandsCopy = this.optionCommands.filter(command => command != null).sort((currentCommandConfig, nextCommandConfig) => {return currentCommandConfig.position > nextCommandConfig.position});
+    let optionsCommandsCopy = this.optionCommands.filter(command => command != null).sort((currentCommandConfig, nextCommandConfig) => {
+      if (currentCommandConfig.position < nextCommandConfig.position) {
+       return -1;
+      } else if (currentCommandConfig.position > nextCommandConfig.position) {
+        return 1;
+      }
+     return 0;
+    });
     let commandArray = ["curl"]
 
     let commandsOptionsAsStringsArray = optionsCommandsCopy.map(command => {
@@ -132,5 +138,17 @@ export class MainPanelComponent implements OnInit {
 
     return commandArray.concat(requiredOptionsAsStringsArray).concat(headerOptionsAsStringsArray)
                       .concat(commandsOptionsAsStringsArray).toString().replace(/,/g, " ") ;
+  }
+
+  get _generatedCommand() {
+    return this.generatedCommand;
+  }
+
+  get _dataTypeRadioGroup() {
+    return this.dataTypeRadioGroup;
+  }
+
+  get _dataTextArea() {
+    return this.dataTextArea;
   }
 }

@@ -28,14 +28,11 @@ export class HeadersOptionContainerComponent implements OnInit {
   ngOnInit() {}
 
   addHeaderClicked(event: Event) {
-    console.log("add button element")
    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(HeadersOptionComponent);
    const headersOptionNewElement = <HeadersOptionComponent>this.dynamicHeadersList.createComponent(componentFactory).instance;
    headersOptionNewElement.index = this.dynamicHeadersList.length - 1;
    this.headersComponents.push(headersOptionNewElement);
-   //
    headersOptionNewElement.headerChangedEmitter.subscribe((headerCommand) => {
-    console.log("headerChanged")
     this.childrenHeadersChanged.emit(headerCommand);
   });
 

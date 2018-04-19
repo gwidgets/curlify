@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderPanelComponent } from './header-panel.component';
+import {MatToolbarModule} from '@angular/material';
 
 describe('HeaderPanelComponent', () => {
   let component: HeaderPanelComponent;
@@ -8,7 +9,10 @@ describe('HeaderPanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderPanelComponent ]
+      declarations: [ HeaderPanelComponent ],
+      imports: [
+        MatToolbarModule
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +23,9 @@ describe('HeaderPanelComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the header-panel component', () => {
     expect(component).toBeTruthy();
+    expect(component.appTitle).toEqual("Curlify")
+    expect(fixture.debugElement.nativeElement.querySelector("mat-toolbar") !== null).toBe(true)
   });
 });
