@@ -3,7 +3,7 @@
         <tr>
           <td > 
             <mat-form-field >
-              <mat-select  value="ACCEPT" (change)="headerTypeChanged($event)">
+              <mat-select  value="Accept" (change)="headerTypeChanged($event)">
                 <mat-option *ngFor="let header of headersList" value="{{header}}">{{header}}</mat-option>
               </mat-select>
               <mat-placeholder><b> Headers</b></mat-placeholder>
