@@ -1,4 +1,4 @@
 <mat-checkbox (change)="onCommandChanged($event)" name="{{option.longFormOption}}">{{option.longFormOption}}</mat-checkbox>
 <mat-form-field *ngIf="option.argument !== undefined">
-  <input (keyup)="onOptionArgumentChanged($event)" name="{{option.longFormOption}}" matInput placeholder="{{option.argument}}">
+  <input (keyup)="onOptionArgumentChanged($event)" (paste)="onOptionArgumentChanged($event)" name="{{option.longFormOption}}" matInput placeholder="{{option.argument}}">
 </mat-form-field>

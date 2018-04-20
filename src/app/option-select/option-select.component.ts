@@ -46,8 +46,18 @@ export class OptionSelectComponent implements OnInit {
   }
 
   onOptionArgumentChanged(event: Event) {
+
     const target = <HTMLInputElement>event.target;
-     if (this.optionCheckBox.checked) {
+    if (event.type === "paste") { 
+      //to make sure the value is there if there is a paste
+      setTimeout(() => this.handleArgumentValueChanged(target), 100)
+    } else {
+      this.handleArgumentValueChanged(target);
+    }
+  }
+
+  private handleArgumentValueChanged(target) {
+    if (this.optionCheckBox.checked) {
       this.optionChanged.emit(new CommandConfig(5, target.name, true, new OptionCommandConfig(target.name, target.value, OptionOperation.MODIFY, true)));
      }
   }

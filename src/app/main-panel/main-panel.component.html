@@ -26,7 +26,7 @@
   
         <app-item-container-child>
           <mat-form-field style="display: block !important;">
-            <textarea #dataTextArea (keyup)="dataChanged($event)" matInput matTextareaAutosize matAutosizeMinRows="10" placeholder="Data"></textarea>
+            <textarea #dataTextArea (keyup)="dataChanged($event)" (paste)="dataChanged($event)" matInput matTextareaAutosize matAutosizeMinRows="10" placeholder="Data"></textarea>
           </mat-form-field>
         </app-item-container-child>
         <app-item-container-child>

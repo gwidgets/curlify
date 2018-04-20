@@ -88,10 +88,13 @@ export class MainPanelComponent implements OnInit {
 
   dataChanged(event: Event) {
     const target = <HTMLTextAreaElement>event.target;
-    let value =  this.dataTypeRadioGroup.value +" '" +target.value +"'" ;
-    if (target.value === "")
-      value = "";
-    this.onDataChanged.emit(new CommandConfig(2,  value ));
+    if (event.type === "paste") {
+      setTimeout(() => {
+        this.readDataAndEmit(target)
+      }, 100)
+    } else {
+      this.readDataAndEmit(target)
+    }
   }
 
   optionEvent(newValue) {
@@ -138,6 +141,13 @@ export class MainPanelComponent implements OnInit {
 
     return commandArray.concat(requiredOptionsAsStringsArray).concat(headerOptionsAsStringsArray)
                       .concat(commandsOptionsAsStringsArray).toString().replace(/,/g, " ") ;
+  }
+
+ private readDataAndEmit(target) {
+    let value =  this.dataTypeRadioGroup.value +" '" +target.value +"'" ;
+    if (target.value === "")
+    value = "";
+  this.onDataChanged.emit(new CommandConfig(2,  value ));
   }
 
   get _generatedCommand() {
