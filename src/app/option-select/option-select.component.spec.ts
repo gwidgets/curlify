@@ -68,7 +68,6 @@ describe('OptionSelectComponent', () => {
     component.option =  optionObjWithArgument;
     fixture.detectChanges();
     const argumentInput =  fixture.debugElement.nativeElement.querySelector("mat-form-field").querySelector("input");
-    console.log(argumentInput.placeholder);
     argumentInput.value = "newArgumentValue";
     argumentInput.dispatchEvent(new Event("keyup"));
     fixture.detectChanges();

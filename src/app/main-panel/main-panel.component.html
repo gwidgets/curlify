@@ -9,7 +9,7 @@
   
         <app-item-container-child>
           <mat-form-field>
-            <mat-select (change)="httpMethodChanged($event)">
+            <mat-select id="httpMethodSelect" (change)="httpMethodChanged($event)">
               <mat-option value="GET">GET</mat-option>
               <mat-option value="POST">POST</mat-option>
               <mat-option value="PUT">PUT</mat-option>

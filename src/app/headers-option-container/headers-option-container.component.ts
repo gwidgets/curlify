@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import { CommandConfig } from '../main-panel/command-config';
 import { OptionCommandConfig } from '../main-panel/option-command-config';
 import { OptionOperation } from '../main-panel/option-config';
-import { truncate } from 'fs';
 
 @Component({
   selector: 'app-headers-option-container',
