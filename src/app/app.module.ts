@@ -17,6 +17,8 @@ import { OptionSelectComponent } from './option-select/option-select.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { HeadersOptionComponent } from './headers-option/headers-option.component';
 import { HeadersOptionContainerComponent } from './headers-option-container/headers-option-container.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { HeadersOptionContainerComponent } from './headers-option-container/head
     MatTooltipModule,
     MatExpansionModule,
     MatRadioModule,
+    MatSnackBarModule,
     BrowserAnimationsModule
   ],
   entryComponents: [HeadersOptionComponent],

@@ -52,4 +52,8 @@ export class AppPage {
   getDataTypeAsciiRadioButton() {
     return element(by.css("#leftContainer > div > div > app-item-container-child:nth-child(4) > div > mat-radio-group > mat-radio-button:nth-child(2) > label > div.mat-radio-container"));
   }
+
+  getTheClearButton() {
+    return element(by.css("#clearButton"));
+  }
 }

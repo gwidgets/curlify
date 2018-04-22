@@ -1,12 +1,14 @@
-import { Component, OnInit, EventEmitter, ViewChild, ElementRef} from '@angular/core';
+import { Component, OnInit, EventEmitter, ViewChild, ElementRef, ViewContainerRef, ViewChildren, QueryList} from '@angular/core';
 import { GeneratedCommandComponent }  from '../generated-command/generated-command.component';
 import { concat } from 'rxjs/operators';
 import { merge } from 'rxjs/observable/merge';
 import * as optionsConfig from "./commands.json";
-import { MatCheckboxChange, MatFormField, MatRadioChange, MatRadioGroup, MatTextareaAutosize, MatOptionSelectionChange, MatSelectChange } from '@angular/material';
+import { MatCheckboxChange, MatFormField, MatRadioChange, MatRadioGroup, MatTextareaAutosize, MatOptionSelectionChange, MatSelectChange, MatCheckbox, MatSelect, MatSnackBar } from '@angular/material';
 import { CommandConfig } from './command-config';
 import { OptionCommandConfig } from './option-command-config';
 import { OptionOperation } from './option-config';
+import { OptionSelectComponent } from '../option-select/option-select.component';
+import { HeadersOptionContainerComponent } from '../headers-option-container/headers-option-container.component';
 
 @Component({
   selector: 'app-main-panel',
@@ -35,7 +37,15 @@ export class MainPanelComponent implements OnInit {
   @ViewChild("dataTextArea")
   private dataTextArea: ElementRef;
 
-  constructor() { 
+  @ViewChildren(OptionSelectComponent) appOptionSelectComponentList: QueryList<OptionSelectComponent>;
+
+  @ViewChild(HeadersOptionContainerComponent)
+  private headersContainer: HeadersOptionContainerComponent;
+
+  @ViewChild(MatSelect)
+  private httpMethodSelect: MatSelect;
+
+  constructor(public snackBar: MatSnackBar) { 
   }
 
   ngOnInit() {
@@ -88,12 +98,13 @@ export class MainPanelComponent implements OnInit {
 
   dataChanged(event: Event) {
     const target = <HTMLTextAreaElement>event.target;
+    //to make sure the value is there if there is a paste
     if (event.type === "paste") {
       setTimeout(() => {
-        this.readDataAndEmit(target)
+        this.handleDataChanged(target)
       }, 100)
     } else {
-      this.readDataAndEmit(target)
+      this.handleDataChanged(target)
     }
   }
 
@@ -110,6 +121,35 @@ export class MainPanelComponent implements OnInit {
 
   headerChanged(headerCommand) {
      this.onHeaderChanged.emit(headerCommand)      
+  }
+
+  clearButtonClick(event) {
+    this.requiredCommands = [];
+    this.optionCommands = [];
+    this.headersCommands = [];
+    this.dataTextArea.nativeElement.value = "";
+    this.generatedCommand.updateCommand("curl")
+    this.appOptionSelectComponentList.forEach((appOptionSelectComponent) => appOptionSelectComponent.optionCheckBox.checked = false);
+    this.headersContainer.removeAll();
+    this.httpMethodSelect.value = "GET";
+
+    let inputs =  document.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+      let input = <HTMLInputElement>inputs.item(i);
+      input.value = "";
+    } 
+  }
+
+  copyToClipboardButtonClick(event) {
+   // this.generatedCommand.command;
+  let hiddenCommandInput = <HTMLInputElement> document.getElementById("generatedCommandClipboard");
+  hiddenCommandInput.value = this.generatedCommand.command;
+  hiddenCommandInput.select();
+  document.execCommand('copy');
+    this.snackBar.open("Command copied to clipboard", null, {
+      duration: 2000,
+    });
+
   }
 
   getCommandAsString() {
@@ -143,7 +183,7 @@ export class MainPanelComponent implements OnInit {
                       .concat(commandsOptionsAsStringsArray).toString().replace(/,/g, " ") ;
   }
 
- private readDataAndEmit(target) {
+ private handleDataChanged(target) {
     let value =  this.dataTypeRadioGroup.value +" '" +target.value +"'" ;
     if (target.value === "")
     value = "";
@@ -160,5 +200,13 @@ export class MainPanelComponent implements OnInit {
 
   get _dataTextArea() {
     return this.dataTextArea;
+  }
+
+  get _httpMethodSelect() {
+    return this.httpMethodSelect;
+  }
+
+  get _headersContainer() {
+    return this.headersContainer;
   }
 }

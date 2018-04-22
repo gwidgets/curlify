@@ -37,17 +37,23 @@ describe('MainPanelComponent', () => {
     const requiredCommandsContainer = commandGenerationContainer.querySelector("#leftContainer");
     expect(requiredCommandsContainer !== null).toBe(true);
     const childrenRequiredCommands = requiredCommandsContainer.querySelectorAll("app-item-container-child");
-    expect(childrenRequiredCommands.length).toEqual(4);
+    expect(childrenRequiredCommands.length).toEqual(5);
 
     const urlInputChildCommand = childrenRequiredCommands[0];
     const httpMethodChildCommand = childrenRequiredCommands[1];
     const dataInputChildCommand = childrenRequiredCommands[2];
     const dataTypeChildCommand = childrenRequiredCommands[3];
+    const utilButtonsSection = childrenRequiredCommands[4];
 
     expect(urlInputChildCommand.querySelector("mat-form-field") !== null).toBe(true)
     expect(httpMethodChildCommand.querySelector("mat-form-field") !== null).toBe(true)
     expect(dataInputChildCommand.querySelector("mat-form-field") !== null).toBe(true)
     expect(dataTypeChildCommand.querySelector("mat-radio-group") !== null).toBe(true)
+    expect(utilButtonsSection.querySelector(".util-buttons") !== null).toBe(true);
+
+    const utilButtons = utilButtonsSection.querySelectorAll(".util-buttons > button")
+
+    expect(utilButtons.length).toEqual(2)
 
     const optionsCommandsContainer = commandGenerationContainer.querySelector("#optionsContainer");
 
@@ -95,5 +101,30 @@ describe('MainPanelComponent', () => {
     appOptionSelectElement.dispatchEvent(new Event("commandChanged"));
     fixture.detectChanges();
     expect(component._generatedCommand.updateCommand).toHaveBeenCalled();
+  });
+
+  it('ensure clicking the clear button calls the clearButtonClick method, and cleans up the current command', () => {
+    spyOn(component, "clearButtonClick")
+    const nativeElement = fixture.nativeElement;
+    const clearButton = nativeElement.querySelector("#clearButton");
+    clearButton.click();
+    fixture.detectChanges();
+    expect(component.clearButtonClick).toHaveBeenCalled();
+    expect(component.optionCommands.length).toEqual(0);
+    expect(component.headersCommands.length).toEqual(0);
+    expect(component.requiredCommands.length).toEqual(0);
+    expect(component._dataTextArea.nativeElement.value).toEqual("");
+    expect(component._httpMethodSelect.value).toEqual("GET");
+    expect(component._headersContainer.dynamicHeadersList.length).toEqual(0);
+    component.appOptionSelectComponentList.forEach((appOptionSelectComponent) => expect(appOptionSelectComponent.optionCheckBox.checked).toBe(false));
+  });
+
+  it('ensure clicking the copy button calls the copyToClipboardButtonClick method', () => {
+    spyOn(component, "copyToClipboardButtonClick")
+    const nativeElement = fixture.nativeElement;
+    const copyButton = nativeElement.querySelector("#copyButton");
+    copyButton.click();
+    fixture.detectChanges();
+    expect(component.copyToClipboardButtonClick).toHaveBeenCalled();
   });
 });

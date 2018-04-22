@@ -21,7 +21,7 @@ export class OptionSelectComponent implements OnInit {
   optionChanged: EventEmitter<object> = new EventEmitter<object>();
 
   @ViewChild(MatCheckbox)
-  private optionCheckBox: MatCheckbox;
+  public optionCheckBox: MatCheckbox;
 
   @ViewChild(MatInput)
   private argumentField: MatInput;

@@ -46,4 +46,8 @@ export class HeadersOptionContainerComponent implements OnInit {
       this.dynamicHeadersList.remove(this.dynamicHeadersList.length - 1);
     }
   }
+
+  removeAll() {
+    this.dynamicHeadersList.clear();
+  }
 }

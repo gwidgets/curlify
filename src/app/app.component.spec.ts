@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HeaderPanelComponent } from './header-panel/header-panel.component';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatOptionModule, MatIconModule } from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSelectModule, MatInputModule, MatFormFieldModule, MatOptionModule, MatIconModule, MatSnackBar } from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MainPanelComponent } from './main-panel/main-panel.component';
@@ -13,6 +13,7 @@ import { OptionSelectComponent } from './option-select/option-select.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { HeadersOptionComponent } from './headers-option/headers-option.component';
 import { HeadersOptionContainerComponent } from './headers-option-container/headers-option-container.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -39,6 +40,7 @@ describe('AppComponent', () => {
         MatTooltipModule,
         MatExpansionModule,
         MatRadioModule,
+        MatSnackBarModule,
         BrowserAnimationsModule
       ]
     }).compileComponents();

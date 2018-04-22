@@ -210,6 +210,10 @@ describe('Curlify app command generation', () => {
       .concat(" ")
       .concat("'" + newRandomPath + "'")
       );
+
+    /***  clearing the command   ***/
+    page.getTheClearButton().click();
+    expect(page.getGeneratedCommand()).toEqual(curl);
   });
 
 });

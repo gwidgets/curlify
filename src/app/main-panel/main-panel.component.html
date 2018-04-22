@@ -37,7 +37,15 @@
             <mat-radio-button value="--data-raw">--data-raw</mat-radio-button>
             <mat-radio-button value="--data-urlencode">--data-urlencode</mat-radio-button>
           </mat-radio-group>
-        </app-item-container-child>       
+        </app-item-container-child>  
+        <app-item-container-child>
+          <div class="util-buttons">
+          <button id="copyButton" (click)="copyToClipboardButtonClick($event)" mat-raised-button color="primary">Copy to clipboard</button>
+          <button id="clearButton" (click)="clearButtonClick($event)" mat-raised-button  color="warn">Clear</button>
+          <input id="generatedCommandClipboard"  style="position: absolute; left: -1000px; top: -1000px;" type="text">
+        </div>
+        </app-item-container-child>  
+         
 </app-item-container>
 
 <app-item-container id="optionsContainer">

@@ -30,3 +30,9 @@
        overflow: scroll;
        flex-grow: 1;
    }
+
+.util-buttons {
+    margin: auto;
+    width: 50%;
+    padding-top: 15px;
+}
