@@ -1,0 +1,21 @@
+mat-toolbar {
+    background: #093551;
+    color: white;
+    font-family: OCRARegular 
+}
+
+mat-toolbar a {
+    color: antiquewhite;
+}
+
+@media (max-width: 700px) {
+    .info{
+      display: none;
+    }
+}
+
+
+@font-face {
+    font-family: 'OCRARegular';
+    src: url('https://s3-eu-west-1.amazonaws.com/gwidgets/OCRARegular.ttf') format('truetype');
+  }
