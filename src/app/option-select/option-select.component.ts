@@ -12,7 +12,7 @@ import * as $ from 'jquery';
 })
 export class OptionSelectComponent implements OnInit {
   @Input()
-  option: object;
+  option: any;
 
   @Output()
   commandChanged: EventEmitter<object> = new EventEmitter<object>();
