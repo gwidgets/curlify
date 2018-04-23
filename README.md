@@ -1,6 +1,10 @@
+[![Build Status](https://travis-ci.org/gwidgets/curlify.svg?branch=master)](https://travis-ci.org/gwidgets/curlify)
+
 # Curlify
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
+
+# Curl version: 7.59.0
 
 ## Development server
 
