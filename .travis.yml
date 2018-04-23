@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "7"
+  - "9"
 sudo: true
 dist: trusty
 
@@ -16,6 +16,7 @@ before_script:
  - sudo apt-get install -y libappindicator1
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
+ - npm install --save-dev @angular-devkit/core@0.0.26
 
 script: 
   - ng test --watch false --single-run
