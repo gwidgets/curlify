@@ -22,4 +22,12 @@ script:
   - ng test --watch false --single-run
   - ng e2e
   - ng build -prod
-  - sed -i -e 's/<base href="/">/<base href="http://www.curlify.net.s3-website.eu-west-2.amazonaws.com/">/g' ./dist/index.html
+  - sed -i -e 's#<base href="/">#<base href="http://www.curlify.net.s3-website.eu-west-2.amazonaws.com/">#g' ./dist/index.html 
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_CODE
+  bucket: "www.curlify.net"
+  region: "eu-west-2"
+  skip_cleanup: true
+  local_dir: dist 
