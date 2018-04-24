@@ -4,10 +4,6 @@ node_js:
 sudo: true
 dist: trusty
 
-branches:
-  only:
-  - master
-
 before_script:
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
@@ -29,5 +25,10 @@ deploy:
   secret_access_key: $AWS_SECRET_ACCESS_CODE
   bucket: "www.curlify.net"
   region: "eu-west-2"
+  acl: public_read
+  cache_control: "max-age=2592000,public"
+  expires: "2034-01-01T00:00:00Z"
   skip_cleanup: true
-  local_dir: dist 
+  local_dir: dist
+  on:
+    branch: master 
